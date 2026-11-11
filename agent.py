@@ -28,15 +28,43 @@ def run_agent(question, provider, tools, max_steps=6):
     # Khi có final answer, kiểm tra nguồn như yêu cầu ở Bài 4 trong GUIDE.md.
     # Trả completed, max_steps hoặc error cùng answer, trace và usage.
 
-    messages = [{'role':'system', 'content':SYSTEM_PROMPT},
+    schemas = getattr(tools, 'schemas', SCHEMAS)
+    system_prompt = getattr(tools, 'system_prompt', SYSTEM_PROMPT)
+    if hasattr(tools, 'system_prompt'):
+        system_prompt += '''
+Chỉ tra provider được hỏi và có tool hỗ trợ; nếu không hỗ trợ, báo giới hạn mà không gọi provider khác.
+Yêu cầu dùng tools chỉ áp dụng cho provider được hỗ trợ. Nếu toàn bộ dịch vụ được hỏi
+nằm ngoài phạm vi này, trả lời trực tiếp về giới hạn và không gọi bất kỳ tool nào.
+Với câu hỏi chỉ tổng hợp status, dùng status tools rồi trả lời khi đã có kết quả hoặc lỗi
+cho từng bên. Chỉ đọc chi tiết incident/timeline khi câu hỏi cần thông tin đó.
+Không lặp truy vấn đã thành công trên cùng snapshot. Chỉ đọc trang tiếp khi cần trả lời câu hỏi.
+Retry tối đa 3 lần gọi mỗi tool/provider, kể cả lần đầu.
+Retry 429 giữ nguyên truy vấn bị rate limit; chỉ sửa tham số khi gặp INVALID_ARGUMENTS.
+Sửa tham số theo lỗi INVALID_ARGUMENTS. Khi RATE_LIMITED có retriable=false hoặc
+Retry-After khác 0, dừng phần đó trong lượt chạy này và báo chưa xác minh được trạng thái.
+Không đổi tool để né rate limit. Dẫn nguồn và timestamp riêng cho từng provider;
+phân biệt thời điểm tạo bản ghi với ảnh hưởng, nêu rõ truncation hoặc trang chưa đọc.'''
+    messages = [{'role':'system', 'content':system_prompt},
                 {'role':'user', 'content':question}]
     trace = []
     usage = []
     incident_urls = set()
+    rate_limits = {}
+    blocked_retries = set()
+    snapshot_bonus = hasattr(tools, 'schemas') and getattr(tools, 'mode', None) == 'snapshot'
+    successful_queries = set()
+    finalize = False
 
     for step in range(1, max_steps  +1):
+        request_schemas = schemas
+        if finalize:
+            messages.append({'role': 'system', 'content':
+                             'Truy vấn snapshot thành công đã bị lặp mà không có bằng chứng mới. '
+                             'Hãy trả lời từ dữ liệu đã quan sát, dẫn nguồn và nêu rõ phần chưa xác minh; '
+                             'không khẳng định đã đọc dữ liệu còn thiếu.'})
+            request_schemas = []
         try:
-            response = provider.complete(messages, SCHEMAS)
+            response = provider.complete(messages, request_schemas)
         except (RuntimeError, OSError, ValueError) as exc:
             error = type(exc).__name__
             trace.append({'event': 'provider_error', 'step': step, 'error': error})
@@ -68,7 +96,21 @@ def run_agent(question, provider, tools, max_steps=6):
             for call in calls:
                 try:
                     arguments = json.loads(call['arguments'])
-                    result = tools.execute(call['name'], arguments)
+                    retry_key = (call['name'], arguments.get('provider') if isinstance(arguments, dict) else None)
+                    if retry_key in blocked_retries:
+                        result = {'ok': False, 'error': 'RATE_LIMITED', 'retriable': False,
+                                  'message': 'Đã dừng retry trong lượt chạy này; chưa xác minh được trạng thái.'}
+                    else:
+                        result = tools.execute(call['name'], arguments)
+                        if result.get('error') == 'RATE_LIMITED':
+                            rate_limits[retry_key] = rate_limits.get(retry_key, 0) + 1
+                            if (rate_limits[retry_key] >= 3 or result.get('retriable') is False
+                                    or result.get('retry_after') not in (None, '', '0')
+                                    or result.get('retry_after_seconds', 0) != 0):
+                                blocked_retries.add(retry_key)
+                                result = {**result, 'retriable': False,
+                                          'message': result.get('message', '') +
+                                          ' Không retry thêm trong lượt chạy này; báo phần chưa xác minh.'}
                 except json.JSONDecodeError:
                     arguments = call['arguments']
                     result = {
@@ -76,6 +118,13 @@ def run_agent(question, provider, tools, max_steps=6):
                         'error': 'INVALID_ARGUMENTS',
                         'message': 'Arguments phải JSON hợp lệ'
                     }
+                if snapshot_bonus and result.get('ok', True) and 'error' not in result:
+                    query = (call['name'], json.dumps(arguments, sort_keys=True, ensure_ascii=False))
+                    if query in successful_queries:
+                        finalize = True
+                        trace.append({'event': 'validation_no_progress', 'step': step,
+                                      'name': call['name'], 'arguments': arguments})
+                    successful_queries.add(query)
                 
                 trace.append({
                     'event': 'tool',
