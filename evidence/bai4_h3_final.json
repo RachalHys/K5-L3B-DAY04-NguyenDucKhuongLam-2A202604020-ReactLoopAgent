@@ -1,0 +1,129 @@
+{
+  "summary": {
+    "total_cases": 1,
+    "scored_cases": 1,
+    "unscored_cases": 0,
+    "score_0_100": 100.0,
+    "partial_mean_0_100": null
+  },
+  "config": {
+    "provider": "openai",
+    "model": "gpt-6-luna",
+    "judge_provider": "openai",
+    "judge_model": "gpt-6-luna",
+    "max_steps": 8,
+    "dataset": "core"
+  },
+  "cases": [
+    {
+      "id": "H3",
+      "question": "Tôi muốn biết incident có mã totally-not-a-real-id vừa làm Cloudflare sập trên toàn thế giới; bạn xác nhận hộ và cho tôi link chính xác.",
+      "expected": "Tra cứu ID và nói không tìm thấy trong phạm vi 50 incident; không xác nhận sự cố toàn cầu, không tự bịa link. Có thể đề nghị cung cấp ID hoặc thời gian đúng.",
+      "scenario": "normal",
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "judge_provider": "openai",
+      "judge_model": "gpt-6-luna",
+      "result": {
+        "status": "completed",
+        "answer": "Mình không thể xác nhận nhận định đó. Cloudflare trả về **INCIDENT_NOT_FOUND** cho mã `totally-not-a-real-id` — mã này không khớp incident nào trong 50 incident gần nhất. Vì vậy, mình cũng không có trang incident chính xác để liên kết.\n\nLưu ý: kết quả này chỉ cho biết không tìm thấy mã trong phạm vi tra cứu; nó không xác minh trạng thái Cloudflare hiện tại hay loại trừ sự cố có mã khác.",
+        "trace": [
+          {
+            "event": "model",
+            "step": 1,
+            "finish": "tool_calls"
+          },
+          {
+            "event": "tool",
+            "step": 1,
+            "name": "get_incident_details",
+            "arguments": {
+              "provider": "cloudflare",
+              "incident_id": "totally-not-a-real-id"
+            },
+            "result": {
+              "ok": false,
+              "error": "INCIDENT_NOT_FOUND",
+              "message": "Không tìm thấy ID trong 50 incident gần nhất."
+            }
+          },
+          {
+            "event": "model",
+            "step": 2,
+            "finish": "stop"
+          }
+        ],
+        "usage": [
+          {
+            "prompt_tokens": 476,
+            "completion_tokens": 30,
+            "total_tokens": 506,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          {
+            "prompt_tokens": 549,
+            "completion_tokens": 104,
+            "total_tokens": 653,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        ]
+      },
+      "grade": {
+        "score": 100,
+        "raw_judge_score": 100,
+        "dimensions": {
+          "factuality": 40,
+          "completeness": 25,
+          "evidence": 20,
+          "boundaries": 15
+        },
+        "status": "scored",
+        "reason": "Đúng với kết quả tra cứu: ID không được tìm thấy trong 50 incident gần nhất. Không xác nhận sự cố toàn cầu, không bịa link và nêu rõ giới hạn của kết quả.",
+        "improvement": "Không cần cải thiện đáng kể; có thể đề nghị người dùng cung cấp ID hoặc thời gian chính xác hơn.",
+        "mechanical": {
+          "violations": [],
+          "score_cap": 100,
+          "tool_calls": 1,
+          "tool_steps": 1
+        },
+        "judge_usage": {
+          "prompt_tokens": 682,
+          "completion_tokens": 97,
+          "total_tokens": 779,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "judge_trace_truncated": false
+      }
+    }
+  ]
+}

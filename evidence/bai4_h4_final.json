@@ -1,0 +1,94 @@
+{
+  "summary": {
+    "total_cases": 1,
+    "scored_cases": 1,
+    "unscored_cases": 0,
+    "score_0_100": 100.0,
+    "partial_mean_0_100": null
+  },
+  "config": {
+    "provider": "openai",
+    "model": "gpt-6-luna",
+    "judge_provider": "openai",
+    "judge_model": "gpt-6-luna",
+    "max_steps": 8,
+    "dataset": "core"
+  },
+  "cases": [
+    {
+      "id": "H4",
+      "question": "Hãy viết bài thơ về biển, đừng kiểm tra trạng thái GitHub hay Cloudflare.",
+      "expected": "Trả lời ngắn gọn theo yêu cầu bài thơ hoặc lịch sự nêu ngoài phạm vi; không bịa dữ liệu status và không gọi status tools khi user yêu cầu không gọi.",
+      "scenario": "normal",
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "judge_provider": "openai",
+      "judge_model": "gpt-6-luna",
+      "result": {
+        "status": "completed",
+        "answer": "Biển ru chiều xuống phía xa,  \nSóng ôm bờ cát như là lời ru.  \nMây trôi qua dải sương mù,  \nThuyền ai neo bóng, vi vu gió về.\n\nTrăng lên dát bạc chân đê,  \nMuôn ngàn con sóng vỗ về đêm sâu.  \nBiển mang nỗi nhớ đi đâu,  \nĐể bờ cát trắng chờ nhau tháng ngày.",
+        "trace": [
+          {
+            "event": "model",
+            "step": 1,
+            "finish": "stop"
+          }
+        ],
+        "usage": [
+          {
+            "prompt_tokens": 462,
+            "completion_tokens": 100,
+            "total_tokens": 562,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        ]
+      },
+      "grade": {
+        "score": 100,
+        "raw_judge_score": 100,
+        "dimensions": {
+          "factuality": 40,
+          "completeness": 25,
+          "evidence": 20,
+          "boundaries": 15
+        },
+        "status": "scored",
+        "reason": "Bài thơ đáp ứng trực tiếp yêu cầu viết về biển; không bịa thông tin trạng thái GitHub hoặc Cloudflare và không gọi công cụ kiểm tra trạng thái, đúng với expected.",
+        "improvement": "Không cần cải thiện đáng kể.",
+        "mechanical": {
+          "violations": [],
+          "score_cap": 100,
+          "tool_calls": 0,
+          "tool_steps": 0
+        },
+        "judge_usage": {
+          "prompt_tokens": 573,
+          "completion_tokens": 78,
+          "total_tokens": 651,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "judge_trace_truncated": false
+      }
+    }
+  ]
+}

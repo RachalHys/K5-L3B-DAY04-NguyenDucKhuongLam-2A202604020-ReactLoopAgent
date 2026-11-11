@@ -1,0 +1,207 @@
+{
+  "summary": {
+    "total_cases": 1,
+    "scored_cases": 1,
+    "unscored_cases": 0,
+    "score_0_100": 98.0,
+    "partial_mean_0_100": null
+  },
+  "config": {
+    "provider": "openai",
+    "model": "gpt-6-luna",
+    "judge_provider": "openai",
+    "judge_model": "gpt-6-luna",
+    "max_steps": 8,
+    "dataset": "core"
+  },
+  "cases": [
+    {
+      "id": "E5",
+      "question": "Tìm incident gần đây về Copilot Mission Control trên GitHub. Nếu trường components rỗng, có thể kết luận không có dịch vụ bị ảnh hưởng không?",
+      "expected": "Tìm bằng title/nội dung; components rỗng không chứng minh không có ảnh hưởng. Nếu không tìm được phải nói giới hạn, không bịa.",
+      "scenario": "normal",
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "judge_provider": "openai",
+      "judge_model": "gpt-6-luna",
+      "result": {
+        "status": "completed",
+        "answer": "Incident gần đây nhất tìm thấy cho **Copilot Mission Control** trên GitHub là **“Increased task-related errors for Copilot Mission Control”** (ID `tc28c0wzrnpz`). GitHub đánh dấu incident là **đã giải quyết**; bản ghi được tạo lúc **2026-11-04 08:45 UTC** và cập nhật lần cuối lúc **10:01 UTC** cùng ngày. [GitHub Status](https://stspg.io/hj74883wgn0t)\n\n**Không.** `components: []` chỉ cho biết bản ghi incident không liệt kê component nào; không đủ căn cứ để kết luận không có dịch vụ bị ảnh hưởng. Mô tả ban đầu nói GitHub đang điều tra báo cáo hiệu năng bị ảnh hưởng ở “một số dịch vụ GitHub”, nhưng không nêu cụ thể dịch vụ nào. Các cập nhật được trả về không bị đánh dấu cắt ngắn; tuy vậy, nguyên nhân gốc được nói là sẽ công bố sau, nên thông tin phạm vi vẫn hạn chế.\n\nTại snapshot **2026-11-09 03:50 UTC**, trạng thái tổng thể GitHub là **All Systems Operational**. Đây là trạng thái tại thời điểm chụp, không thay đổi việc incident nêu trên là sự cố đã qua. [GitHub Status](https://www.githubstatus.com)",
+        "trace": [
+          {
+            "event": "model",
+            "step": 1,
+            "finish": "tool_calls"
+          },
+          {
+            "event": "tool",
+            "step": 1,
+            "name": "get_status",
+            "arguments": {
+              "provider": "github",
+              "component": "Copilot Mission Control"
+            },
+            "result": {
+              "provider": "github",
+              "captured_at": "2026-11-09T03:50:47.065020+00:00",
+              "overall": {
+                "indicator": "none",
+                "description": "All Systems Operational"
+              },
+              "components": [],
+              "incidents": [
+                {
+                  "id": "tc28c0wzrnpz",
+                  "name": "Increased task-related errors for Copilot Mission Control",
+                  "status": "resolved",
+                  "updated_at": "2026-11-04T10:01:44.589Z"
+                }
+              ],
+              "matching_incidents_in_last_50": 1,
+              "note": "Chỉ tìm theo chuỗi trong 50 incident gần nhất; không tìm thấy không chứng minh không có sự cố.",
+              "source": "https://www.githubstatus.com"
+            }
+          },
+          {
+            "event": "model",
+            "step": 2,
+            "finish": "tool_calls"
+          },
+          {
+            "event": "tool",
+            "step": 2,
+            "name": "get_incident_details",
+            "arguments": {
+              "provider": "github",
+              "incident_id": "tc28c0wzrnpz"
+            },
+            "result": {
+              "ok": true,
+              "provider": "github",
+              "captured_at": "2026-11-09T03:50:47.065020+00:00",
+              "id": "tc28c0wzrnpz",
+              "name": "Increased task-related errors for Copilot Mission Control",
+              "status": "resolved",
+              "created_at": "2026-11-04T08:45:00.281Z",
+              "updated_at": "2026-11-04T10:01:44.589Z",
+              "components": [],
+              "updates": [
+                {
+                  "status": "resolved",
+                  "created_at": "2026-11-04T10:01:44.560Z",
+                  "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+                  "truncated": false
+                },
+                {
+                  "status": "monitoring",
+                  "created_at": "2026-11-04T10:01:39.506Z",
+                  "body": "The degradation has been mitigated. We are monitoring to ensure stability.",
+                  "truncated": false
+                },
+                {
+                  "status": "investigating",
+                  "created_at": "2026-11-04T08:45:00.346Z",
+                  "body": "We are investigating reports of impacted performance for some GitHub services.",
+                  "truncated": false
+                }
+              ],
+              "updates_total": 6,
+              "url": "https://stspg.io/hj74883wgn0t"
+            }
+          },
+          {
+            "event": "model",
+            "step": 3,
+            "finish": "stop"
+          }
+        ],
+        "usage": [
+          {
+            "prompt_tokens": 559,
+            "completion_tokens": 24,
+            "total_tokens": 583,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          {
+            "prompt_tokens": 758,
+            "completion_tokens": 31,
+            "total_tokens": 789,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          {
+            "prompt_tokens": 1123,
+            "completion_tokens": 293,
+            "total_tokens": 1416,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 1120,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        ]
+      },
+      "grade": {
+        "score": 98,
+        "raw_judge_score": 98,
+        "dimensions": {
+          "factuality": 40,
+          "completeness": 24,
+          "evidence": 19,
+          "boundaries": 15
+        },
+        "status": "scored",
+        "reason": "Nêu đúng incident, ID, trạng thái và thời gian theo trace; kết luận chính xác rằng components rỗng không chứng minh không có dịch vụ bị ảnh hưởng. Mô tả giới hạn phạm vi phù hợp với cập nhật điều tra. Nguồn dẫn đúng; tuy nhiên, thời điểm tạo được diễn đạt theo phút thay vì độ chính xác đầy đủ trong trace.",
+        "improvement": "Có thể nêu rõ thời điểm tạo và cập nhật theo UTC với độ chính xác nhất quán, và ghi chú kết quả tìm kiếm chỉ bao phủ 50 incident gần nhất.",
+        "mechanical": {
+          "violations": [],
+          "score_cap": 100,
+          "tool_calls": 2,
+          "tool_steps": 2
+        },
+        "judge_usage": {
+          "prompt_tokens": 1398,
+          "completion_tokens": 147,
+          "total_tokens": 1545,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 1395,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "judge_trace_truncated": false
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Ghi chú phân tích · Day 04
 
-Họ và tên: Nguyễn Đức Khương Lâm
+Họ và tên: Nguyễn Đức Khương Lam
 MSSV: 2A202604020
 
 ## 1. Case được chọn
@@ -28,19 +28,23 @@ Các nhóm còn lại đã được đối chiếu answer và trace: scope/ngu�
 
 ## 3. Thay đổi đã thực hiện
 
-- Chưa thay đổi agent ở giai đoạn baseline.
-- Dự kiến: làm rõ điều kiện sử dụng công cụ và tra cứu ID trong `SYSTEM_PROMPT`; bổ sung validation URL nguồn theo contract bắt buộc của Bài 4. Không mã hóa riêng câu hỏi, case ID hoặc incident ID.
+- Làm rõ lựa chọn công cụ trong `SYSTEM_PROMPT` của `agent.py`: chỉ dùng tools khi cần bằng chứng trạng thái/incident; tra trực tiếp ID cần xác minh; lấy cả trạng thái dịch vụ và chi tiết incident nếu câu hỏi cần cả hai. Hai loại dữ liệu không thay thế nhau.
+- Bổ sung nguyên tắc giữ mức chắc chắn của nguồn, phân biệt `created_at` với thời điểm ảnh hưởng, đối chiếu ngày/giờ và nêu giới hạn truncation/timeline. Các quy tắc áp dụng chung, không mã hóa câu hỏi, đáp án hoặc case ID.
+- Lưu URL từ `get_incident_details` thành công. Nếu final answer không chứa URL nào đã lưu, ghi `validation_missing_source` và yêu cầu sửa trong ngân sách `max_steps`; hết bước trả `max_steps`. Không bắt URL khi chưa đọc incident thành công.
+- Kiểm tra offline: 37/37 tests có sẵn đạt, gồm sửa câu trả lời thiếu URL, hết ngân sách và incident không tìm thấy; không thêm hoặc sửa tests.
+- Hai thử nghiệm toàn bộ được giữ nguyên trong `evidence/core_candidate_1.json` và `core_candidate_2.json`. Lần đầu đạt 94,14 nhưng H2 thiếu `get_status`; lần tiếp đạt 96,41 nhưng H1 mâu thuẫn khi so sánh ngày và thiếu lưu ý truncation, E5 diễn đạt thời điểm tạo như lúc bắt đầu ảnh hưởng. Các quan sát này dẫn tới hai bổ sung quy tắc nêu trên.
+- Kiểm chứng phiên bản cuối: 37/37 tests đạt; H4 chạy riêng đạt 100, E5 đạt 98, H1 đạt 93. Eval toàn bộ đạt 97,55/100; H3 và H4 đều 100, không có vi phạm cơ học. Đối chiếu answer/trace không phát hiện lại các regression đã nêu. Các kết quả thử nghiệm gốc được lưu trong `evidence/`.
 
 ## 4. So sánh hai lần chạy
 
 | Chỉ số | `eval_before.json` | `eval_after.json` |
 |---|---|---|
-| Điểm tổng | 92,73/100 | Chưa chạy |
-| Điểm case đã chọn | H4: 50/100 | Chưa chạy |
-| Số model calls | Agent: 62; judge: 22 | Chưa chạy |
-| Token, chi phí nếu có | Agent: 66.532; judge: 45.887 token | Chưa chạy |
+| Điểm tổng | 92,73/100 | 97,55/100 |
+| Điểm case đã chọn | H4: 50/100 | H4: 100/100 |
+| Số model calls | Agent: 62; judge: 22 | Agent: 58; judge: 22 |
+| Token, chi phí nếu có | Agent: 66.532; judge: 45.887 token | Agent: 69.129; judge: 40.272 token |
 
-- Chưa đánh giá cải tiến; baseline giữ nguyên để so sánh.
+- Hai file dùng cùng cấu hình; kết quả toàn bộ đã được đối chiếu để kiểm tra Bài 4. Phân tích so sánh chi tiết được tổng hợp ở Bài 5.
 - API trả token usage, không trả chi phí tiền tệ trong kết quả.
 
 ## 5. Giới hạn
