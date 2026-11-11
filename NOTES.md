@@ -44,7 +44,27 @@ Các nhóm còn lại đã được đối chiếu answer và trace: scope/ngu�
 | Số model calls | Agent: 62; judge: 22 | Agent: 58; judge: 22 |
 | Token, chi phí nếu có | Agent: 66.532; judge: 45.887 token | Agent: 69.129; judge: 40.272 token |
 
-- Hai file dùng cùng cấu hình; kết quả toàn bộ đã được đối chiếu để kiểm tra Bài 4. Phân tích so sánh chi tiết được tổng hợp ở Bài 5.
+- Hai file cùng agent/judge model, reasoning effort, snapshot, 8 bước và dataset; mỗi file đủ 22 case. Lệnh đánh giá: `python3 evals/run_evals.py --max-steps 8 --workers 2 --output eval_after.json`, với `PROVIDER=openai`, `MODEL=gpt-6-luna`; baseline dùng cùng lệnh và đổi output thành `eval_before.json`.
+- Tổng điểm tăng 4,82; tổng token agent và judge giảm từ 112.419 xuống 109.401 (2,68%). Token agent tăng dù số calls giảm; không suy ra chi phí chỉ từ số lượt gọi.
+
+| Case | Trước | Sau | Case | Trước | Sau |
+|---|---:|---:|---|---:|---:|
+| E1 | 100 | 95 | A6 | 89 | 92 |
+| E2 | 100 | 96 | A7 | 100 | 100 |
+| E3 | 100 | 100 | A8 | 95 | 99 |
+| E4 | 100 | 99 | H1 | 92 | 96 |
+| E5 | 90 | 95 | H2 | 100 | 97 |
+| E6 | 100 | 100 | H3 | 50 | 100 |
+| A1 | 95 | 96 | H4 | 50 | 100 |
+| A2 | 100 | 100 | H5 | 90 | 93 |
+| A3 | 99 | 98 | H6 | 94 | 94 |
+| A4 | 100 | 100 | H7 | 99 | 99 |
+| A5 | 99 | 99 | H8 | 98 | 98 |
+
+- Lỗi đã giải quyết trong lần chạy cuối: H4 không gọi tool; H3 tra ID rồi báo `INCIDENT_NOT_FOUND`, không tạo link; H2 giữ cả status và details. E5 phân biệt thời điểm tạo và báo cáo đang điều tra; H1 đối chiếu ngày và nêu truncation. Vi phạm cơ học giảm từ hai case xuống không còn case nào.
+- Validation hoạt động thực tế ở E4: step 2 ghi `validation_missing_source`, step 3 trả lời lại với URL `https://stspg.io/pjgptg3cfc6n`. Trace nhiều bước H6 thể hiện đọc status và incident gốc ở step 1, rồi đọc incident liên quan ở step 2 trước khi trả lời.
+- Điểm giảm ở E1, E2, E4, A3 và H2. Đối chiếu answer/trace không xác nhận lỗi mới về trạng thái, phạm vi hay lựa chọn tool: E1 vẫn nêu đúng incident ngày 4/11 và 5/11; E2 giữ phạm vi FedRAMP; E4 có URL do tool trả; A3 báo partial timeout; H2 kiểm tra cả hai nguồn. Không xem điểm giảm là bằng chứng tự đủ về regression, đồng thời không khẳng định mọi case giữ nguyên điểm.
+- Giới hạn còn lại: một số câu trả lời dài, cách trình bày nguồn/thời gian chưa đồng đều; A6, H5, H6 còn dưới 100 dù các kết luận chính khớp trace. Kết quả cuối không chứng minh đã loại bỏ mọi lỗi có thể xảy ra.
 - API trả token usage, không trả chi phí tiền tệ trong kết quả.
 
 ## 5. Giới hạn
