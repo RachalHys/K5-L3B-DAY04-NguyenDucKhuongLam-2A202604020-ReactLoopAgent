@@ -1,4 +1,4 @@
-"""Agent loop bài 1. Xem GUIDE.md."""
+"""Agent loop và xử lý lỗi bài 1–2. Xem GUIDE.md."""
 
 SYSTEM_PROMPT = '''Bạn là trợ lý điều tra trạng thái GitHub và Cloudflare.
 Dùng tools trước khi khẳng định về trạng thái. Phân biệt incident hiện tại và lịch sử,
@@ -24,7 +24,18 @@ def run_agent(question, provider, tools, max_steps=6):
     usage = []
 
     for step in range(1, max_steps  +1):
-        response = provider.complete(messages, SCHEMAS)
+        try:
+            response = provider.complete(messages, SCHEMAS)
+        except (RuntimeError, OSError, ValueError) as exc:
+            error = type(exc).__name__
+            trace.append({'event': 'provider_error', 'step': step, 'error': error})
+            return {
+                'status': 'error',
+                'answer': '',
+                'trace': trace,
+                'usage': usage,
+                'error': error,
+            }
 
         messages.append(response['message'])
         usage.append(response['usage'])
