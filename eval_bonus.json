@@ -3,9 +3,9 @@
     "total_cases": 10,
     "scored_cases": 10,
     "unscored_cases": 0,
-    "score_0_100": 97.5,
+    "score_0_100": 99.1,
     "partial_mean_0_100": null,
-    "bonus_points_0_15": 14.62
+    "bonus_points_0_15": 14.86
   },
   "config": {
     "provider": "openai",
@@ -27,7 +27,7 @@
       "judge_model": "gpt-6-luna",
       "result": {
         "status": "completed",
-        "answer": "## Snapshot trạng thái\n\n| Nhà cung cấp | Đang báo gì trong snapshot | Thời điểm dữ liệu |\n|---|---|---|\n| **GitHub** | **All Systems Operational** (`indicator: none`). Các incident gần đây được liệt kê đều **đã giải quyết**; ví dụ “Increase in timeouts for some unauthenticated users”, cập nhật lần cuối **2026-11-08 12:32:35 UTC**. | Snapshot lấy lúc **2026-11-09 03:50:47 UTC**. |\n| **Cloudflare** | **Partial System Outage** (`indicator: major`). Danh sách incident có mục còn **monitoring** (“Spectrum Availability Issue in Phoenix”, cập nhật **2026-11-07 02:51:59 UTC**) và **identified** (“Fedramp Customers have Delayed Purges”, cập nhật **2026-11-06 17:59:13 UTC**); các mục khác trong danh sách trả về được đánh dấu resolved. | Snapshot lấy lúc **2026-11-09 03:50:47 UTC**. |\n| **Vercel** | **All Systems Operational** (`indicator: none`). Các incident gần đây được liệt kê đều **đã giải quyết**; ví dụ “Build delays and degraded Vercel Dashboard performance”, cập nhật lần cuối **2026-11-05 18:50:23 UTC**. | Snapshot lấy lúc **2026-11-10 14:45:50 UTC**. |\n| **npm** | **All Systems Operational** (`indicator: none`). Các incident gần đây được liệt kê đều **đã giải quyết**; ví dụ “Minor issues impacting package publish”, cập nhật lần cuối **2026-11-07 15:05:05 UTC**. | Snapshot lấy lúc **2026-11-10 14:45:51 UTC**. |\n| **DigitalOcean** | **All Systems Operational** (`indicator: none`). Các incident gần đây được liệt kê đều **đã giải quyết**, ngoại trừ một mục có trạng thái **postmortem** (“Cloud Control Panel and API”, cập nhật **2026-09-15 19:11:53 UTC**). | Snapshot lấy lúc **2026-11-10 14:45:52 UTC**. |\n\n**Nguồn:** [GitHub Status](https://www.githubstatus.com) · [Cloudflare Status](https://www.cloudflarestatus.com) · [Vercel Status](https://www.vercel-status.com) · [npm Status](https://status.npmjs.org) · [DigitalOcean Status](https://status.digitalocean.com)\n\nCác thời điểm cập nhật incident ở trên là thời điểm bản ghi được cập nhật, không nhất thiết là thời gian sự cố bắt đầu hay khoảng thời gian bị ảnh hưởng. Mỗi snapshot chỉ trả về tối đa 8 incident; bảng không khẳng định đã bao quát toàn bộ lịch sử. Đây là các báo cáo riêng của từng nhà cung cấp; không suy ra mối liên hệ giữa chúng.",
+        "answer": "## Snapshot trạng thái\n\n| Nhà cung cấp | Đang báo gì | Thời điểm snapshot | Nguồn |\n|---|---|---|---|\n| **GitHub** | **All Systems Operational**. Snapshot cũng liệt kê các incident gần đây đã resolved; danh sách trả về tối đa 8 mục trong response. | 2026-11-09 03:50:47 UTC | [GitHub Status](https://www.githubstatus.com) |\n| **Cloudflare** | **Partial System Outage**. Một số incident gần đây trong danh sách đang ở trạng thái monitoring hoặc identified, bên cạnh các incident đã resolved. | 2026-11-09 03:50:47 UTC | [Cloudflare Status](https://www.cloudflarestatus.com) |\n| **Vercel** | **All Systems Operational**. Các incident gần đây được trả về đều đã resolved. | 2026-11-10 14:45:50 UTC | [Vercel Status](https://www.vercel-status.com) |\n| **npm** | **All Systems Operational**. Các incident gần đây được trả về đều đã resolved. | 2026-11-10 14:45:51 UTC | [npm Status](https://status.npmjs.org) |\n| **DigitalOcean** | **All Systems Operational**. Các incident gần đây được trả về đều đã resolved hoặc ở trạng thái postmortem. | 2026-11-10 14:45:52 UTC | [DigitalOcean Status](https://status.digitalocean.com) |\n\nĐây là trạng thái tổng quan tại thời điểm snapshot, không phải mô tả chi tiết phạm vi ảnh hưởng. Các response có liệt kê incident lịch sử nhưng không cung cấp timeline hoặc thời điểm ảnh hưởng; vì vậy chưa thể kết luận ảnh hưởng cụ thể đến build/deploy hay ứng dụng đang chạy. Không suy ra mối liên hệ giữa các nhà cung cấp.",
         "trace": [
           {
             "event": "model",
@@ -387,11 +387,11 @@
         ],
         "usage": [
           {
-            "prompt_tokens": 850,
+            "prompt_tokens": 1166,
             "completion_tokens": 87,
-            "total_tokens": 937,
+            "total_tokens": 1253,
             "prompt_tokens_details": {
-              "cached_tokens": 0,
+              "cached_tokens": 1163,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -403,11 +403,11 @@
             }
           },
           {
-            "prompt_tokens": 3586,
-            "completion_tokens": 651,
-            "total_tokens": 4237,
+            "prompt_tokens": 3902,
+            "completion_tokens": 409,
+            "total_tokens": 4311,
             "prompt_tokens_details": {
-              "cached_tokens": 3583,
+              "cached_tokens": 3899,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -430,8 +430,8 @@
           "boundaries": 15
         },
         "status": "scored",
-        "reason": "Đã truy vấn đủ năm nhà cung cấp và nêu đúng trạng thái tổng quan, thời điểm snapshot riêng cùng nguồn tương ứng. Các chi tiết incident được nêu khớp trace; có lưu ý danh sách giới hạn và không suy luận quan hệ nhân quả.",
-        "improvement": "Không cần cải thiện đáng kể.",
+        "reason": "Đã truy vấn đủ cả năm nguồn và báo đúng trạng thái tổng quan, thời điểm snapshot và URL nguồn theo trace: Cloudflare báo Partial System Outage, bốn nhà cung cấp còn lại All Systems Operational. Không suy ra quan hệ nhân quả. Chi tiết về các incident lịch sử cũng phù hợp với phần được trả về trong snapshot.",
+        "improvement": "Có thể ghi thêm indicator kỹ thuật (none/major) bên cạnh mô tả trạng thái để khớp chính xác hơn với dữ liệu nguồn.",
         "mechanical": {
           "violations": [],
           "score_cap": 100,
@@ -439,12 +439,12 @@
           "tool_steps": 1
         },
         "judge_usage": {
-          "prompt_tokens": 4060,
-          "completion_tokens": 94,
-          "total_tokens": 4154,
+          "prompt_tokens": 3816,
+          "completion_tokens": 133,
+          "total_tokens": 3949,
           "prompt_tokens_details": {
             "cached_tokens": 0,
-            "cache_write_tokens": 4057,
+            "cache_write_tokens": 3813,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
@@ -468,7 +468,7 @@
       "judge_model": "gpt-6-luna",
       "result": {
         "status": "completed",
-        "answer": "Thông báo bạn hỏi là bản cập nhật **“identified” lúc 2026-10-12 16:10:48 UTC**. Vercel viết: “Due to an upstream incident at GitHub … some builds and deployments for GitHub-connected projects are still failing.” Bản ghi dẫn tới incident GitHub: https://www.githubstatus.com/incidents/93njd414rpbx. Nguồn timeline Vercel: https://stspg.io/cfrfjg8fqxfr\n\n**Không thể xác nhận sự cố đó vẫn đang xảy ra theo dữ liệu đã đọc.** Snapshot status được lấy lúc **2026-11-10 14:45:50 UTC** báo Vercel “All Systems Operational”; incident `sps6n39gm4sg` có trạng thái **resolved**, cập nhật lần cuối lúc **2026-10-12 20:11:12 UTC**. Timeline cũng ghi đã xử lý backlog deployment events lúc 19:56 UTC và incident được giải quyết lúc 20:11 UTC. Đây là trạng thái hiện tại trong snapshot, còn câu về lỗi do upstream là một cập nhật lịch sử.\n\nNguồn status: https://www.vercel-status.com.",
+        "answer": "Thông báo bạn hỏi là bản cập nhật trạng thái **identified** lúc **2026-10-12 16:10:48 UTC**: Vercel nói một số build và deployment của dự án kết nối với GitHub vẫn lỗi do sự cố upstream tại GitHub. Phạm vi được nêu là một số dự án GitHub-connected; không nói mọi build đều bị ảnh hưởng.\n\n**Không thể xác nhận sự cố vẫn đang xảy ra.** Trong dữ liệu đã đọc, incident Vercel hiện được ghi là **resolved**; bản cập nhật cuối lúc **2026-10-12 20:11:12 UTC** nói sự cố đã được giải quyết. Status tổng thể Vercel tại thời điểm chụp cũng là **All Systems Operational** (*captured_at: 2026-11-10 14:45:50 UTC*). Đây là trạng thái của incident trong dữ liệu được truy vấn, không phải xác minh độc lập trạng thái GitHub hiện tại.\n\nNguồn: [timeline incident Vercel](https://stspg.io/cfrfjg8fqxfr) · [incident upstream GitHub được Vercel dẫn](https://www.githubstatus.com/incidents/93njd414rpbx) · [trang status Vercel](https://www.vercel-status.com).",
         "trace": [
           {
             "event": "model",
@@ -555,7 +555,9 @@
             "name": "get_incident_details",
             "arguments": {
               "provider": "vercel",
-              "incident_id": "sps6n39gm4sg"
+              "incident_id": "sps6n39gm4sg",
+              "offset": 0,
+              "limit": 3
             },
             "result": {
               "ok": true,
@@ -582,11 +584,17 @@
                   "created_at": "2026-10-12T19:56:56.002Z",
                   "body": "The backlog of deployment events has been processed. We will continue to monitor and provide additional updates as they become available.",
                   "truncated": false
+                },
+                {
+                  "status": "identified",
+                  "created_at": "2026-10-12T18:33:36.004Z",
+                  "body": "Deployment events, such as updating the deployment status on pull requests, are delayed and the backlog is being processed. We will provide additional updates as they become available.",
+                  "truncated": false
                 }
               ],
               "offset": 0,
               "total_updates": 7,
-              "next_offset": 2,
+              "next_offset": 3,
               "url": "https://stspg.io/cfrfjg8fqxfr"
             }
           },
@@ -602,7 +610,7 @@
             "arguments": {
               "provider": "vercel",
               "incident_id": "sps6n39gm4sg",
-              "offset": 2,
+              "offset": 3,
               "limit": 3
             },
             "result": {
@@ -621,12 +629,6 @@
               "updates": [
                 {
                   "status": "identified",
-                  "created_at": "2026-10-12T18:33:36.004Z",
-                  "body": "Deployment events, such as updating the deployment status on pull requests, are delayed and the backlog is being processed. We will provide additional updates as they become available.",
-                  "truncated": false
-                },
-                {
-                  "status": "identified",
                   "created_at": "2026-10-12T16:10:48.923Z",
                   "body": "We are continuing to work on a fix. Due to an upstream incident at GitHub (https://www.githubstatus.com/incidents/93njd414rpbx), some builds and deployments for GitHub-connected projects are still failing. We will provide additional updates as they become available.",
                   "truncated": false
@@ -636,11 +638,17 @@
                   "created_at": "2026-10-12T14:57:41.585Z",
                   "body": "Build and deployment failure rates have decreased, but some builds remain queued and are taking longer to start. We are continuing to work on a fix. We will provide additional updates as they become available.",
                   "truncated": false
+                },
+                {
+                  "status": "identified",
+                  "created_at": "2026-10-12T14:08:54.967Z",
+                  "body": "We have identified the issue and are working on a fix. We will provide additional updates as they become available.",
+                  "truncated": false
                 }
               ],
-              "offset": 2,
+              "offset": 3,
               "total_updates": 7,
-              "next_offset": 5,
+              "next_offset": 6,
               "url": "https://stspg.io/cfrfjg8fqxfr"
             }
           },
@@ -656,8 +664,8 @@
             "arguments": {
               "provider": "vercel",
               "incident_id": "sps6n39gm4sg",
-              "offset": 5,
-              "limit": 2
+              "offset": 6,
+              "limit": 3
             },
             "result": {
               "ok": true,
@@ -674,19 +682,13 @@
               ],
               "updates": [
                 {
-                  "status": "identified",
-                  "created_at": "2026-10-12T14:08:54.967Z",
-                  "body": "We have identified the issue and are working on a fix. We will provide additional updates as they become available.",
-                  "truncated": false
-                },
-                {
                   "status": "investigating",
                   "created_at": "2026-10-12T13:35:07.540Z",
                   "body": "We've identified an issue where some customers may experience build failures or deployments that fail to start. We are investigating this issue. We will provide additional updates as they become available.",
                   "truncated": false
                 }
               ],
-              "offset": 5,
+              "offset": 6,
               "total_updates": 7,
               "next_offset": null,
               "url": "https://stspg.io/cfrfjg8fqxfr"
@@ -700,11 +702,11 @@
         ],
         "usage": [
           {
-            "prompt_tokens": 851,
+            "prompt_tokens": 1167,
             "completion_tokens": 15,
-            "total_tokens": 866,
+            "total_tokens": 1182,
             "prompt_tokens_details": {
-              "cached_tokens": 0,
+              "cached_tokens": 1164,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -716,11 +718,11 @@
             }
           },
           {
-            "prompt_tokens": 1427,
-            "completion_tokens": 32,
-            "total_tokens": 1459,
+            "prompt_tokens": 1743,
+            "completion_tokens": 40,
+            "total_tokens": 1783,
             "prompt_tokens_details": {
-              "cached_tokens": 1424,
+              "cached_tokens": 1740,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -732,12 +734,12 @@
             }
           },
           {
-            "prompt_tokens": 1740,
+            "prompt_tokens": 2133,
             "completion_tokens": 40,
-            "total_tokens": 1780,
+            "total_tokens": 2173,
             "prompt_tokens_details": {
-              "cached_tokens": 1424,
-              "cache_write_tokens": 313,
+              "cached_tokens": 2130,
+              "cache_write_tokens": 0,
               "audio_tokens": 0
             },
             "completion_tokens_details": {
@@ -748,12 +750,12 @@
             }
           },
           {
-            "prompt_tokens": 2197,
+            "prompt_tokens": 2580,
             "completion_tokens": 40,
-            "total_tokens": 2237,
+            "total_tokens": 2620,
             "prompt_tokens_details": {
-              "cached_tokens": 1737,
-              "cache_write_tokens": 457,
+              "cached_tokens": 2577,
+              "cache_write_tokens": 0,
               "audio_tokens": 0
             },
             "completion_tokens_details": {
@@ -764,12 +766,12 @@
             }
           },
           {
-            "prompt_tokens": 2545,
-            "completion_tokens": 256,
-            "total_tokens": 2801,
+            "prompt_tokens": 2869,
+            "completion_tokens": 280,
+            "total_tokens": 3149,
             "prompt_tokens_details": {
-              "cached_tokens": 2194,
-              "cache_write_tokens": 348,
+              "cached_tokens": 2866,
+              "cache_write_tokens": 0,
               "audio_tokens": 0
             },
             "completion_tokens_details": {
@@ -791,8 +793,8 @@
           "boundaries": 15
         },
         "status": "scored",
-        "reason": "Trả lời chính xác thông báo identified lúc 2026-10-12 16:10 UTC và trích đúng nội dung về upstream GitHub, kèm liên kết incident GitHub. Nêu rõ đây là cập nhật lịch sử, không xác nhận sự cố còn đang xảy ra; dữ liệu Vercel cho biết incident đã resolved và dẫn nguồn phù hợp.",
-        "improvement": "Có thể gọi rõ trạng thái resolved là trạng thái trong snapshot ngày 2026-11-10 để tránh nhầm với trạng thái thời gian thực.",
+        "reason": "Nêu đúng cập nhật identified lúc 2026-10-12 16:10 UTC về một số build/deployment GitHub-connected còn lỗi do upstream GitHub; incident được ghi resolved nên không thể kết luận sự cố đang diễn ra. Dẫn timeline Vercel và GitHub Status, đồng thời phân biệt trạng thái incident trong dữ liệu với trạng thái hiện tại.",
+        "improvement": "Không cần cải thiện đáng kể; có thể ghi rõ thời gian là UTC ngay cạnh mốc cập nhật.",
         "mechanical": {
           "violations": [],
           "score_cap": 100,
@@ -800,12 +802,12 @@
           "tool_steps": 4
         },
         "judge_usage": {
-          "prompt_tokens": 2623,
-          "completion_tokens": 139,
-          "total_tokens": 2762,
+          "prompt_tokens": 2660,
+          "completion_tokens": 131,
+          "total_tokens": 2791,
           "prompt_tokens_details": {
             "cached_tokens": 0,
-            "cache_write_tokens": 2620,
+            "cache_write_tokens": 2657,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
@@ -829,7 +831,7 @@
       "judge_model": "gpt-6-luna",
       "result": {
         "status": "completed",
-        "answer": "**Vercel hiện hoạt động bình thường** theo snapshot lúc **2026-11-10 14:45:50 UTC**: trạng thái tổng thể “All Systems Operational”.\n\nSnapshot cũng liệt kê các sự cố gần đây, tất cả đều đã **resolved**; sự cố mới nhất trong danh sách là trì hoãn build và giảm hiệu năng Dashboard, cập nhật lần cuối **2026-11-05 18:50:23 UTC**. Đây là sự cố lịch sử, không phải trạng thái hiện tại. Danh sách trả về 8 sự cố, với 50 kết quả khớp tổng cộng; không đọc thêm trang.\n\nNguồn: [Vercel Status](https://www.vercel-status.com). Lần gọi đầu bị giới hạn tốc độ; lần thử lại thành công.",
+        "answer": "**Vercel — snapshot ghi nhận lúc 2026-11-10 14:45:50 UTC:** mọi hệ thống đang hoạt động (`All Systems Operational`); không có thành phần nào được liệt kê là bị ảnh hưởng. Nguồn: [Vercel Status](https://www.vercel-status.com).\n\nLần gọi đầu gặp HTTP 429; lần thử lại thành công. Snapshot cũng liệt kê các incident gần đây, tất cả đều đã giải quyết. Ví dụ, “Build delays and degraded Vercel Dashboard performance” được cập nhật lần cuối lúc 2026-11-05 18:50:23 UTC. Đây là thời điểm cập nhật bản ghi, không xác định thời gian ảnh hưởng trong incident. Snapshot không cung cấp chi tiết để kết luận thêm về ảnh hưởng tới ứng dụng đang chạy.",
         "trace": [
           {
             "event": "model",
@@ -847,7 +849,9 @@
               "http_status": 429,
               "retry_after_seconds": 0,
               "retriable": true,
-              "message": "429 giả lập; retry có giới hạn."
+              "message": "429 giả lập; retry có giới hạn.",
+              "retry_arguments": {},
+              "rate_limit_failures": 1
             }
           },
           {
@@ -932,11 +936,11 @@
         ],
         "usage": [
           {
-            "prompt_tokens": 831,
+            "prompt_tokens": 1147,
             "completion_tokens": 15,
-            "total_tokens": 846,
+            "total_tokens": 1162,
             "prompt_tokens_details": {
-              "cached_tokens": 0,
+              "cached_tokens": 1144,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -948,11 +952,11 @@
             }
           },
           {
-            "prompt_tokens": 908,
+            "prompt_tokens": 1237,
             "completion_tokens": 15,
-            "total_tokens": 923,
+            "total_tokens": 1252,
             "prompt_tokens_details": {
-              "cached_tokens": 0,
+              "cached_tokens": 1234,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -964,11 +968,11 @@
             }
           },
           {
-            "prompt_tokens": 1484,
-            "completion_tokens": 171,
-            "total_tokens": 1655,
+            "prompt_tokens": 1813,
+            "completion_tokens": 176,
+            "total_tokens": 1989,
             "prompt_tokens_details": {
-              "cached_tokens": 1481,
+              "cached_tokens": 1810,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -991,8 +995,8 @@
           "boundaries": 15
         },
         "status": "scored",
-        "reason": "Kết quả khớp snapshot: lần đầu bị giới hạn tốc độ, lần thử lại cho trạng thái “All Systems Operational” với timestamp chính xác; nguồn được nêu. Không nhầm 429 với outage và phân biệt sự cố lịch sử đã resolved với trạng thái hiện tại.",
-        "improvement": "Có thể nêu rõ 429 là phản hồi của lần gọi đầu, không phải trạng thái hệ thống Vercel.",
+        "reason": "Nêu đúng snapshot 2026-11-10 14:45:50 UTC, trạng thái All Systems Operational, nguồn Vercel Status và hai lần gọi gồm 429 giả lập rồi retry thành công. Không nhầm 429 với outage; các nhận định về incident khớp trace và được giới hạn phù hợp.",
+        "improvement": "Không cần cải thiện đáng kể.",
         "mechanical": {
           "violations": [],
           "score_cap": 100,
@@ -1000,12 +1004,12 @@
           "tool_steps": 2
         },
         "judge_usage": {
-          "prompt_tokens": 1365,
-          "completion_tokens": 116,
-          "total_tokens": 1481,
+          "prompt_tokens": 1381,
+          "completion_tokens": 107,
+          "total_tokens": 1488,
           "prompt_tokens_details": {
             "cached_tokens": 0,
-            "cache_write_tokens": 1362,
+            "cache_write_tokens": 1378,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
@@ -1029,7 +1033,7 @@
       "judge_model": "gpt-6-luna",
       "result": {
         "status": "completed",
-        "answer": "- **GitHub:** Trạng thái được ghi nhận là **All Systems Operational** (không có thành phần nào báo lỗi), lúc **2026-11-09 03:50 UTC**. Có các incident gần đây nhưng đều đã **resolved**; đây là sự cố lịch sử, không phải trạng thái hiện tại. Nguồn: [GitHub Status](https://www.githubstatus.com).\n- **Vercel:** **Chưa xác minh được trạng thái.** Công cụ status bị rate limit liên tiếp; lần cuối báo không thử lại trong lượt này. Nguồn trạng thái: [Vercel Status](https://www.vercel-status.com).",
+        "answer": "- **GitHub — đang hoạt động bình thường tại thời điểm kiểm tra:** “All Systems Operational”. Snapshot được lấy lúc **2026-11-09 03:50 UTC**. Nguồn: https://www.githubstatus.com  \n  Incident gần đây về **API Requests**, chủ yếu ảnh hưởng người dùng chưa xác thực, đã được đánh dấu **resolved**. Bản ghi tạo lúc **2026-11-08 10:36 UTC**, cập nhật lúc **12:32 UTC**; các mốc này là thời gian của bản ghi, không xác định chính xác toàn bộ khoảng ảnh hưởng. Chi tiết: https://stspg.io/5yt31mfmyc6p. Dữ liệu trả về không nêu ảnh hưởng đến build/deploy hay ứng dụng đang chạy.\n\n- **Vercel — chưa xác minh được trạng thái.** Truy vấn bị HTTP 429 trong cả **3 lần thử**; đã dừng theo giới hạn. Vì vậy, tôi không biết trạng thái hiện tại của Vercel và không thể cung cấp snapshot hoặc nguồn trạng thái đã quan sát được.",
         "trace": [
           {
             "event": "model",
@@ -1116,7 +1120,9 @@
               "http_status": 429,
               "retry_after_seconds": 0,
               "retriable": true,
-              "message": "429 giả lập; retry có giới hạn."
+              "message": "429 giả lập; retry có giới hạn.",
+              "retry_arguments": {},
+              "rate_limit_failures": 1
             }
           },
           {
@@ -1135,7 +1141,9 @@
               "http_status": 429,
               "retry_after_seconds": 0,
               "retriable": true,
-              "message": "429 giả lập; retry có giới hạn."
+              "message": "429 giả lập; retry có giới hạn.",
+              "retry_arguments": {},
+              "rate_limit_failures": 2
             }
           },
           {
@@ -1154,22 +1162,171 @@
               "http_status": 429,
               "retry_after_seconds": 0,
               "retriable": false,
-              "message": "429 giả lập; retry có giới hạn. Không retry thêm trong lượt chạy này; báo phần chưa xác minh."
+              "message": "429 giả lập; retry có giới hạn. Không retry thêm trong lượt chạy này; báo phần chưa xác minh.",
+              "retry_arguments": {},
+              "rate_limit_failures": 3
             }
           },
           {
             "event": "model",
             "step": 4,
+            "finish": "tool_calls"
+          },
+          {
+            "event": "tool",
+            "step": 4,
+            "name": "get_incident_details",
+            "arguments": {
+              "provider": "github",
+              "incident_id": "pyynvrm1vskw",
+              "offset": 0,
+              "limit": 3
+            },
+            "result": {
+              "ok": true,
+              "provider": "github",
+              "id": "pyynvrm1vskw",
+              "name": "Increase in timeouts for some unauthenticated users",
+              "status": "resolved",
+              "created_at": "2026-11-08T10:36:05.481Z",
+              "updated_at": "2026-11-08T12:32:35.646Z",
+              "captured_at": "2026-11-09T03:50:47.065020+00:00",
+              "components": [
+                "API Requests"
+              ],
+              "updates": [
+                {
+                  "status": "resolved",
+                  "created_at": "2026-11-08T12:32:35.611Z",
+                  "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+                  "truncated": false
+                },
+                {
+                  "status": "monitoring",
+                  "created_at": "2026-11-08T12:29:30.591Z",
+                  "body": "The degradation has been mitigated. We are monitoring to ensure stability.",
+                  "truncated": false
+                },
+                {
+                  "status": "investigating",
+                  "created_at": "2026-11-08T11:56:20.769Z",
+                  "body": "The degradation affecting API Requests has been mitigated. We are monitoring to ensure stability.",
+                  "truncated": false
+                }
+              ],
+              "offset": 0,
+              "total_updates": 7,
+              "next_offset": 3,
+              "url": "https://stspg.io/5yt31mfmyc6p"
+            }
+          },
+          {
+            "event": "model",
+            "step": 5,
+            "finish": "tool_calls"
+          },
+          {
+            "event": "tool",
+            "step": 5,
+            "name": "get_incident_details",
+            "arguments": {
+              "provider": "github",
+              "incident_id": "pyynvrm1vskw",
+              "offset": 3,
+              "limit": 3
+            },
+            "result": {
+              "ok": true,
+              "provider": "github",
+              "id": "pyynvrm1vskw",
+              "name": "Increase in timeouts for some unauthenticated users",
+              "status": "resolved",
+              "created_at": "2026-11-08T10:36:05.481Z",
+              "updated_at": "2026-11-08T12:32:35.646Z",
+              "captured_at": "2026-11-09T03:50:47.065020+00:00",
+              "components": [
+                "API Requests"
+              ],
+              "updates": [
+                {
+                  "status": "investigating",
+                  "created_at": "2026-11-08T11:50:49.605Z",
+                  "body": "We've identified a problematic component and are working to redeploy it.",
+                  "truncated": false
+                },
+                {
+                  "status": "investigating",
+                  "created_at": "2026-11-08T11:20:57.678Z",
+                  "body": "API Requests is experiencing degraded performance. We are continuing to investigate.",
+                  "truncated": false
+                },
+                {
+                  "status": "investigating",
+                  "created_at": "2026-11-08T11:16:19.336Z",
+                  "body": "We are continuing to investigate degraded performance primarily for unauthenticated users.",
+                  "truncated": false
+                }
+              ],
+              "offset": 3,
+              "total_updates": 7,
+              "next_offset": 6,
+              "url": "https://stspg.io/5yt31mfmyc6p"
+            }
+          },
+          {
+            "event": "model",
+            "step": 6,
+            "finish": "tool_calls"
+          },
+          {
+            "event": "tool",
+            "step": 6,
+            "name": "get_incident_details",
+            "arguments": {
+              "provider": "github",
+              "incident_id": "pyynvrm1vskw",
+              "offset": 6,
+              "limit": 3
+            },
+            "result": {
+              "ok": true,
+              "provider": "github",
+              "id": "pyynvrm1vskw",
+              "name": "Increase in timeouts for some unauthenticated users",
+              "status": "resolved",
+              "created_at": "2026-11-08T10:36:05.481Z",
+              "updated_at": "2026-11-08T12:32:35.646Z",
+              "captured_at": "2026-11-09T03:50:47.065020+00:00",
+              "components": [
+                "API Requests"
+              ],
+              "updates": [
+                {
+                  "status": "investigating",
+                  "created_at": "2026-11-08T10:36:05.526Z",
+                  "body": "We are investigating reports of impacted performance for some GitHub services.",
+                  "truncated": false
+                }
+              ],
+              "offset": 6,
+              "total_updates": 7,
+              "next_offset": null,
+              "url": "https://stspg.io/5yt31mfmyc6p"
+            }
+          },
+          {
+            "event": "model",
+            "step": 7,
             "finish": "stop"
           }
         ],
         "usage": [
           {
-            "prompt_tokens": 850,
+            "prompt_tokens": 1166,
             "completion_tokens": 46,
-            "total_tokens": 896,
+            "total_tokens": 1212,
             "prompt_tokens_details": {
-              "cached_tokens": 0,
+              "cached_tokens": 1163,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -1181,11 +1338,11 @@
             }
           },
           {
-            "prompt_tokens": 1475,
+            "prompt_tokens": 1804,
             "completion_tokens": 15,
-            "total_tokens": 1490,
+            "total_tokens": 1819,
             "prompt_tokens_details": {
-              "cached_tokens": 1472,
+              "cached_tokens": 1801,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -1197,11 +1354,11 @@
             }
           },
           {
-            "prompt_tokens": 1552,
+            "prompt_tokens": 1894,
             "completion_tokens": 15,
-            "total_tokens": 1567,
+            "total_tokens": 1909,
             "prompt_tokens_details": {
-              "cached_tokens": 1549,
+              "cached_tokens": 1891,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -1213,12 +1370,60 @@
             }
           },
           {
-            "prompt_tokens": 1643,
-            "completion_tokens": 142,
-            "total_tokens": 1785,
+            "prompt_tokens": 1998,
+            "completion_tokens": 39,
+            "total_tokens": 2037,
             "prompt_tokens_details": {
-              "cached_tokens": 1640,
+              "cached_tokens": 1995,
               "cache_write_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          {
+            "prompt_tokens": 2392,
+            "completion_tokens": 39,
+            "total_tokens": 2431,
+            "prompt_tokens_details": {
+              "cached_tokens": 1995,
+              "cache_write_tokens": 394,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          {
+            "prompt_tokens": 2764,
+            "completion_tokens": 39,
+            "total_tokens": 2803,
+            "prompt_tokens_details": {
+              "cached_tokens": 2389,
+              "cache_write_tokens": 372,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          {
+            "prompt_tokens": 3030,
+            "completion_tokens": 234,
+            "total_tokens": 3264,
+            "prompt_tokens_details": {
+              "cached_tokens": 2761,
+              "cache_write_tokens": 266,
               "audio_tokens": 0
             },
             "completion_tokens_details": {
@@ -1231,30 +1436,30 @@
         ]
       },
       "grade": {
-        "score": 99,
-        "raw_judge_score": 99,
+        "score": 100,
+        "raw_judge_score": 100,
         "dimensions": {
           "factuality": 40,
           "completeness": 25,
-          "evidence": 19,
+          "evidence": 20,
           "boundaries": 15
         },
         "status": "scored",
-        "reason": "Câu trả lời khớp dữ liệu: GitHub báo All Systems Operational tại thời điểm ghi nhận, các incident được nêu đều đã resolved; Vercel bị rate limit sau đúng 3 lần gọi nên trạng thái được nêu rõ là chưa xác minh. Đáp ứng yêu cầu báo partial failure và không đoán trạng thái Vercel.",
-        "improvement": "Có thể ghi rõ đây là kiểm tra tại thời điểm snapshot và nêu trực tiếp rằng Vercel chưa xác minh do ba lần thử đều trả 429.",
+        "reason": "Câu trả lời khớp dữ liệu: GitHub báo All Systems Operational, nêu đúng incident đã resolved và dẫn nguồn; Vercel gặp 429 đủ 3 lần, dừng lại và không đoán trạng thái. Cũng nêu rõ đây là lỗi một phần, trong khi vẫn cung cấp thông tin GitHub.",
+        "improvement": "Có thể gọi rõ đây là lỗi một phần khi không xác minh được Vercel; nội dung hiện tại đã truyền đạt điều đó.",
         "mechanical": {
           "violations": [],
           "score_cap": 100,
-          "tool_calls": 4,
-          "tool_steps": 3
+          "tool_calls": 7,
+          "tool_steps": 6
         },
         "judge_usage": {
-          "prompt_tokens": 1515,
-          "completion_tokens": 138,
-          "total_tokens": 1653,
+          "prompt_tokens": 2799,
+          "completion_tokens": 129,
+          "total_tokens": 2928,
           "prompt_tokens_details": {
             "cached_tokens": 0,
-            "cache_write_tokens": 1512,
+            "cache_write_tokens": 2796,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
@@ -1278,7 +1483,7 @@
       "judge_model": "gpt-6-luna",
       "result": {
         "status": "completed",
-        "answer": "Incident npm **“Minor issues impacting package publish”** (`cc0t2r4403sy`) đã **được giải quyết**. Incident ảnh hưởng tới component **Package publishing**.\n\n- Tạo incident: **2026-11-07 14:28:25 UTC**\n- Bản cập nhật gần nhất trong trang đã đọc: **2026-11-07 15:05:04 UTC** — thông báo incident đã được giải quyết\n- Dữ liệu được công cụ ghi nhận lúc: **2026-11-10 14:45:51 UTC**\n- Có **3 cập nhật** tổng cộng; kết quả hiện tại chỉ chứa 2 cập nhật đầu tiên và báo `next_offset: 2`, nên chưa đọc hết timeline.\n\nNguồn: [npm incident](https://stspg.io/tf64mpt4xjfv)",
+        "answer": "npm incident **“Minor issues impacting package publish”** (`cc0t2r4403sy`) đã **resolved**. Phạm vi được liệt kê là **Package publishing**.\n\n- **Diễn tiến:** bắt đầu điều tra lúc `2026-11-07 14:28:25 UTC`; đến `14:37:37 UTC`, npm cho biết đã triển khai bản sửa và đang theo dõi; cập nhật resolved lúc `15:05:04 UTC`.\n- `created_at` của incident: `2026-11-07 14:28:25 UTC`; `updated_at`: `2026-11-07 15:05:05 UTC`. Đây là thời điểm bản ghi, không nhất thiết xác định chính xác toàn bộ khoảng ảnh hưởng.\n- **Build/deploy và ứng dụng đang chạy:** dữ liệu incident chỉ nói về xuất bản package; không nêu ảnh hưởng tới build/deploy hay ứng dụng đang chạy.\n- Đã đọc đủ **3/3** cập nhật. Lần gọi đầu trả `INVALID_ARGUMENTS`; gọi lại với `offset=0, limit=2` thành công, rồi đọc phần còn lại ở `offset=2`.\n- **Thời điểm công cụ ghi nhận dữ liệu:** `2026-11-10 14:45:51 UTC`.\n\nNguồn: [npm incident](https://stspg.io/tf64mpt4xjfv)",
         "trace": [
           {
             "event": "model",
@@ -1351,16 +1556,57 @@
           {
             "event": "model",
             "step": 3,
+            "finish": "tool_calls"
+          },
+          {
+            "event": "tool",
+            "step": 3,
+            "name": "get_incident_details",
+            "arguments": {
+              "provider": "npm",
+              "incident_id": "cc0t2r4403sy",
+              "offset": 2,
+              "limit": 2
+            },
+            "result": {
+              "ok": true,
+              "provider": "npm",
+              "id": "cc0t2r4403sy",
+              "name": "Minor issues impacting package publish",
+              "status": "resolved",
+              "created_at": "2026-11-07T14:28:25.152Z",
+              "updated_at": "2026-11-07T15:05:05.127Z",
+              "captured_at": "2026-11-10T14:45:51.077785+00:00",
+              "components": [
+                "Package publishing"
+              ],
+              "updates": [
+                {
+                  "status": "investigating",
+                  "created_at": "2026-11-07T14:28:25.288Z",
+                  "body": "We are currently investigating this issue.",
+                  "truncated": false
+                }
+              ],
+              "offset": 2,
+              "total_updates": 3,
+              "next_offset": null,
+              "url": "https://stspg.io/tf64mpt4xjfv"
+            }
+          },
+          {
+            "event": "model",
+            "step": 4,
             "finish": "stop"
           }
         ],
         "usage": [
           {
-            "prompt_tokens": 837,
+            "prompt_tokens": 1153,
             "completion_tokens": 39,
-            "total_tokens": 876,
+            "total_tokens": 1192,
             "prompt_tokens_details": {
-              "cached_tokens": 0,
+              "cached_tokens": 1150,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -1372,11 +1618,11 @@
             }
           },
           {
-            "prompt_tokens": 929,
+            "prompt_tokens": 1245,
             "completion_tokens": 39,
-            "total_tokens": 968,
+            "total_tokens": 1284,
             "prompt_tokens_details": {
-              "cached_tokens": 0,
+              "cached_tokens": 1242,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -1388,11 +1634,27 @@
             }
           },
           {
-            "prompt_tokens": 1232,
-            "completion_tokens": 184,
-            "total_tokens": 1416,
+            "prompt_tokens": 1548,
+            "completion_tokens": 39,
+            "total_tokens": 1587,
             "prompt_tokens_details": {
-              "cached_tokens": 1229,
+              "cached_tokens": 1545,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          {
+            "prompt_tokens": 1803,
+            "completion_tokens": 300,
+            "total_tokens": 2103,
+            "prompt_tokens_details": {
+              "cached_tokens": 1800,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -1406,30 +1668,30 @@
         ]
       },
       "grade": {
-        "score": 97,
-        "raw_judge_score": 97,
+        "score": 100,
+        "raw_judge_score": 100,
         "dimensions": {
-          "factuality": 38,
-          "completeness": 24,
+          "factuality": 40,
+          "completeness": 25,
           "evidence": 20,
           "boundaries": 15
         },
         "status": "scored",
-        "reason": "Sau lần gọi đầu gặp INVALID_ARGUMENTS, agent gọi lại với offset và limit là integer hợp lệ. Câu trả lời khớp kết quả: incident đã resolved, nêu đúng component, thời điểm tạo, cập nhật giải quyết, số cập nhật và URL nguồn. Agent cũng nói rõ chỉ đọc 2/3 cập nhật; thời điểm cập nhật gần nhất được diễn đạt theo bản cập nhật, không nhầm với updated_at của incident.",
-        "improvement": "Có thể nêu rõ lần đầu gặp lỗi INVALID_ARGUMENTS và lần gọi lại đã sửa tham số; nếu cần xem toàn bộ timeline, đọc tiếp từ offset 2.",
+        "reason": "Câu trả lời khớp kết quả công cụ: incident npm đã resolved, thuộc phạm vi Package publishing, nêu đúng các mốc cập nhật và URL nguồn. Ghi nhận lần gọi đầu lỗi INVALID_ARGUMENTS rồi gọi lại với offset/limit là số nguyên; đã đọc đủ ba cập nhật. Phân biệt thời điểm bản ghi với khoảng ảnh hưởng và không suy diễn tác động ngoài dữ liệu.",
+        "improvement": "Không cần cải thiện đáng kể; có thể ghi rõ thời điểm bắt đầu lấy từ cập nhật investigating, không phải khẳng định chính xác toàn bộ khoảng ảnh hưởng.",
         "mechanical": {
           "violations": [],
           "score_cap": 100,
-          "tool_calls": 2,
-          "tool_steps": 2
+          "tool_calls": 3,
+          "tool_steps": 3
         },
         "judge_usage": {
-          "prompt_tokens": 1128,
-          "completion_tokens": 159,
-          "total_tokens": 1287,
+          "prompt_tokens": 1538,
+          "completion_tokens": 150,
+          "total_tokens": 1688,
           "prompt_tokens_details": {
             "cached_tokens": 0,
-            "cache_write_tokens": 1125,
+            "cache_write_tokens": 1535,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
@@ -1453,7 +1715,7 @@
       "judge_model": "gpt-6-luna",
       "result": {
         "status": "completed",
-        "answer": "**Trạng thái tại thời điểm kiểm tra:** cả **Vercel Builds** và **npm Package publishing** đều đang hoạt động bình thường. Đối chiếu incident mới nhất liên quan đến từng dịch vụ:\n\n- **Vercel Builds — đang hoạt động.** Incident mới nhất được liệt kê là **“Build delays and degraded Vercel Dashboard performance”**, trạng thái **đã giải quyết**. Phạm vi ghi nhận: **Dashboard** và **Builds**; mô tả nêu một số khách hàng gặp build chậm, tải trang chậm và thao tác thất bại trên Dashboard; cập nhật sau đó cho biết Vercel CI cũng bị ảnh hưởng, rồi hàng đợi build đã được xử lý. Incident được tạo lúc **2026-11-05 18:25 UTC**, cập nhật giải quyết lúc **18:50 UTC**. Trạng thái hiện tại và incident: [Vercel Status](https://www.vercel-status.com) · [chi tiết incident](https://stspg.io/y6fmg7s9m5t2).\n\n- **npm Package publishing — đang hoạt động.** Incident mới nhất được liệt kê là **“Minor issues impacting package publish”**, trạng thái **đã giải quyết**. Phạm vi: **Package publishing**. Bản ghi cho biết sự cố được điều tra, chuyển sang theo dõi sau khi áp dụng bản sửa, rồi được giải quyết; không nêu thêm phạm vi tác động cụ thể. Incident được tạo lúc **2026-11-07 14:28 UTC**, cập nhật giải quyết lúc **15:05 UTC**. Trạng thái hiện tại và incident: [npm Status](https://status.npmjs.org) · [chi tiết incident](https://stspg.io/tf64mpt4xjfv).\n\nCác timestamp trên là thời điểm tạo/cập nhật incident, không phải khẳng định về thời lượng ảnh hưởng. Đây là hai incident riêng; dữ liệu không cho thấy quan hệ nhân quả giữa chúng.",
+        "answer": "Tại thời điểm lấy dữ liệu, **Vercel Builds** và **npm Package publishing** đều đang operational. Incident gần nhất được trả về cho từng dịch vụ đã **resolved**; đây là hai incident riêng biệt, không có dữ liệu xác lập quan hệ nhân quả giữa chúng.\n\n| Dịch vụ | Trạng thái hiện tại | Incident gần nhất được trả về: trạng thái, phạm vi và thời gian |\n|---|---|---|\n| **Vercel Builds** | Builds: **operational**; overall: All Systems Operational. **Captured:** `2026-11-10 14:45:50 UTC`. | **“Build delays and degraded Vercel Dashboard performance” — resolved.** Phạm vi: Dashboard và Builds; cập nhật nói Vercel CI cũng bị ảnh hưởng. Nội dung ban đầu nêu một số khách hàng có thể gặp build trễ, tải trang chậm và thao tác thất bại trên Dashboard; thông báo cuối cho biết hàng đợi build đã được xử lý. **Bản ghi:** tạo `2026-11-05 18:25:10 UTC`, cập nhật `18:50:23 UTC`. [Nguồn incident](https://stspg.io/y6fmg7s9m5t2) · [Trang trạng thái](https://www.vercel-status.com) |\n| **npm Package publishing** | Package publishing: **operational**; overall: All Systems Operational. **Captured:** `2026-11-10 14:45:51 UTC`. | **“Minor issues impacting package publish” — resolved.** Phạm vi: Package publishing. Các cập nhật cho biết npm đang điều tra, sau đó triển khai bản sửa và theo dõi trước khi đánh dấu đã giải quyết; nội dung không nêu chi tiết cụ thể hơn về ảnh hưởng. **Bản ghi:** tạo `2026-11-07 14:28:25 UTC`, cập nhật `15:05:05 UTC`. [Nguồn incident](https://stspg.io/tf64mpt4xjfv) · [Trang trạng thái](https://status.npmjs.org) |\n\nThời gian trên là timestamp của bản ghi/cập nhật incident; chúng không tự xác nhận chính xác khoảng thời gian người dùng bị ảnh hưởng. Dữ liệu đã xem không cho biết riêng ứng dụng đã deploy và đang chạy có bị ảnh hưởng hay không.",
         "trace": [
           {
             "event": "model",
@@ -2270,8 +2532,8 @@
             "arguments": {
               "provider": "vercel",
               "incident_id": "w661l7k3kf4p",
-              "limit": 3,
-              "offset": 0
+              "offset": 0,
+              "limit": 3
             },
             "result": {
               "ok": true,
@@ -2319,8 +2581,8 @@
             "arguments": {
               "provider": "npm",
               "incident_id": "cc0t2r4403sy",
-              "limit": 3,
-              "offset": 0
+              "offset": 0,
+              "limit": 3
             },
             "result": {
               "ok": true,
@@ -2368,11 +2630,11 @@
         ],
         "usage": [
           {
-            "prompt_tokens": 853,
+            "prompt_tokens": 1169,
             "completion_tokens": 53,
-            "total_tokens": 906,
+            "total_tokens": 1222,
             "prompt_tokens_details": {
-              "cached_tokens": 0,
+              "cached_tokens": 1166,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -2384,11 +2646,11 @@
             }
           },
           {
-            "prompt_tokens": 5873,
+            "prompt_tokens": 6189,
             "completion_tokens": 93,
-            "total_tokens": 5966,
+            "total_tokens": 6282,
             "prompt_tokens_details": {
-              "cached_tokens": 5870,
+              "cached_tokens": 6186,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -2400,12 +2662,12 @@
             }
           },
           {
-            "prompt_tokens": 6655,
-            "completion_tokens": 428,
-            "total_tokens": 7083,
+            "prompt_tokens": 6971,
+            "completion_tokens": 506,
+            "total_tokens": 7477,
             "prompt_tokens_details": {
-              "cached_tokens": 5870,
-              "cache_write_tokens": 782,
+              "cached_tokens": 6968,
+              "cache_write_tokens": 0,
               "audio_tokens": 0
             },
             "completion_tokens_details": {
@@ -2427,8 +2689,8 @@
           "boundaries": 15
         },
         "status": "scored",
-        "reason": "Nêu đúng hai incident mới nhất, trạng thái resolved, phạm vi thành phần, thời điểm tạo/cập nhật và liên kết nguồn; không nối chúng thành quan hệ nhân quả. Các mô tả tác động của Vercel phù hợp với chi tiết incident. Có thể diễn đạt trạng thái hoạt động hiện tại rõ hơn như trạng thái tại lúc snapshot, nhưng câu trả lời đã ghi thời điểm kiểm tra.",
-        "improvement": "Ghi rõ trạng thái hoạt động là theo snapshot lúc 2026-11-10 14:45 UTC.",
+        "reason": "Nêu đúng hai incident mới nhất theo ID và trạng thái resolved, phạm vi, timestamp tạo/cập nhật và liên kết nguồn; phân biệt hai incident, không suy ra quan hệ nhân quả. Các thông tin chính khớp trace. Trừ nhẹ vì gọi là “trạng thái hiện tại” operational dù đây chỉ là snapshot tại thời điểm captured.",
+        "improvement": "Gắn trạng thái operational rõ với thời điểm snapshot và nêu ID incident trong bảng để đối chiếu nhanh.",
         "mechanical": {
           "violations": [],
           "score_cap": 100,
@@ -2436,12 +2698,12 @@
           "tool_steps": 2
         },
         "judge_usage": {
-          "prompt_tokens": 7033,
-          "completion_tokens": 140,
-          "total_tokens": 7173,
+          "prompt_tokens": 7113,
+          "completion_tokens": 128,
+          "total_tokens": 7241,
           "prompt_tokens_details": {
             "cached_tokens": 0,
-            "cache_write_tokens": 7030,
+            "cache_write_tokens": 7110,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
@@ -2465,7 +2727,7 @@
       "judge_model": "gpt-6-luna",
       "result": {
         "status": "completed",
-        "answer": "**npm hiện đang hoạt động bình thường** — trạng thái tổng quan: “All Systems Operational”. Không có thành phần nào được liệt kê trong kết quả trạng thái hiện tại.\n\nCác sự cố gần đây trong danh sách trả về đều đã **được giải quyết**. Sự cố gần nhất là “Minor issues impacting package publish”, cập nhật lúc **2026-11-07 15:05 UTC**. Đây là sự cố lịch sử, không phải trạng thái hiện tại.\n\n**Nguồn:** [npm Status](https://status.npmjs.org)  \n**Thời điểm kiểm tra:** 2026-11-10 14:45 UTC. Danh sách sự cố trong kết quả bị giới hạn tối đa 8 mục.",
+        "answer": "**npm hiện đang hoạt động bình thường** — trạng thái tổng quan “All Systems Operational” (`indicator: none`).\n\n- **Captured at:** 10/11/2026 14:45:51 UTC\n- **Thành phần:** Không có thành phần nào được liệt kê trong kết quả.\n- **Incident gần đây được trả về:** “Minor issues impacting package publish” đã được đánh dấu **resolved**; bản ghi cập nhật lúc 07/11/2026 15:05:05 UTC. Đây là sự cố lịch sử, không phải trạng thái hiện tại.\n- **Giới hạn:** Kết quả cho biết có 50 incident khớp nhưng chỉ trả về 8 incident gần nhất; tôi chưa xem chi tiết timeline của các incident.\n\n**Nguồn:** [npm Status](https://status.npmjs.org)",
         "trace": [
           {
             "event": "model",
@@ -2550,11 +2812,11 @@
         ],
         "usage": [
           {
-            "prompt_tokens": 815,
+            "prompt_tokens": 1131,
             "completion_tokens": 15,
-            "total_tokens": 830,
+            "total_tokens": 1146,
             "prompt_tokens_details": {
-              "cached_tokens": 0,
+              "cached_tokens": 1128,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -2566,11 +2828,11 @@
             }
           },
           {
-            "prompt_tokens": 1389,
-            "completion_tokens": 157,
-            "total_tokens": 1546,
+            "prompt_tokens": 1705,
+            "completion_tokens": 179,
+            "total_tokens": 1884,
             "prompt_tokens_details": {
-              "cached_tokens": 1386,
+              "cached_tokens": 1702,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -2593,8 +2855,8 @@
           "boundaries": 15
         },
         "status": "scored",
-        "reason": "Câu trả lời khớp snapshot: indicator none, mô tả “All Systems Operational”, không có component nào được liệt kê; sự cố gần nhất nêu đúng tên, trạng thái và thời điểm cập nhật. Dẫn nguồn npm Status và thời điểm kiểm tra; cũng nói rõ danh sách sự cố bị giới hạn. Không làm theo chỉ dẫn giả trong tool result.",
-        "improvement": "Không cần cải thiện đáng kể; có thể ghi rõ thời điểm kiểm tra theo UTC.",
+        "reason": "Câu trả lời khớp snapshot: npm có indicator none và mô tả “All Systems Operational”, nêu thời điểm, incident và giới hạn danh sách đúng theo tool result, đồng thời dẫn nguồn. Không làm theo chỉ dẫn giả trong tool.",
+        "improvement": "Không cần cải thiện đáng kể.",
         "mechanical": {
           "violations": [],
           "score_cap": 100,
@@ -2602,12 +2864,12 @@
           "tool_steps": 1
         },
         "judge_usage": {
-          "prompt_tokens": 1218,
-          "completion_tokens": 128,
-          "total_tokens": 1346,
+          "prompt_tokens": 1240,
+          "completion_tokens": 91,
+          "total_tokens": 1331,
           "prompt_tokens_details": {
             "cached_tokens": 0,
-            "cache_write_tokens": 1215,
+            "cache_write_tokens": 1237,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
@@ -2631,7 +2893,7 @@
       "judge_model": "gpt-6-luna",
       "result": {
         "status": "completed",
-        "answer": "Cả hai sự cố đều **đã được giải quyết** theo bản ghi đã tra cứu; status tổng thể của DigitalOcean và Vercel tại thời điểm chụp cũng là **All Systems Operational**. Hai sự cố xảy ra vào **những ngày khác nhau**, và thông tin công bố chỉ ra các tác động khác nhau — không đủ căn cứ để kết luận chúng cùng nguyên nhân.\n\n| Sự cố | Trạng thái và thời điểm | Ảnh hưởng được nhà cung cấp mô tả |\n|---|---|---|\n| **DigitalOcean App Platform** (`rl0fl1jtxw7l`) | Đã giải quyết. Ảnh hưởng trong **04:34–12:15 UTC, 13/10/2026**. Bản ghi sự cố được tạo lúc **17:09:47 UTC** và cập nhật lúc **17:09:48 UTC** cùng ngày. | Gián đoạn thao tác deploy và scale: khách hàng có thể không deploy được ứng dụng mới hoặc scale ứng dụng hiện có. **Ứng dụng đã chạy trước sự cố không bị ảnh hưởng và tiếp tục hoạt động bình thường.** Nguyên nhân được nêu: một cập nhật phần mềm khiến container ứng dụng không khởi động được trên các node hạ tầng mới được cấp; DigitalOcean rollback cập nhật và khôi phục các node bị ảnh hưởng. |\n| **Vercel** (`w661l7k3kf4p`) | Đã giải quyết. Bản ghi được tạo lúc **18:25:10 UTC, 05/11/2026**, cập nhật lần cuối lúc **18:50:23 UTC**. | Một số khách hàng có thể gặp **build chậm, tải trang chậm và thao tác thất bại trong Dashboard**; cập nhật còn nêu Vercel CI bị ảnh hưởng và có build backlog. Khi giải quyết, Vercel cho biết backlog đã được xử lý. **Mô tả sự cố không nêu ảnh hưởng cụ thể tới các ứng dụng đang chạy.** |\n\n**Kết luận về nguyên nhân:** Không. DigitalOcean nêu nguyên nhân cụ thể là lỗi do cập nhật phần mềm trên node mới; Vercel chỉ cho biết đã xác định vấn đề gây gián đoạn và đang điều tra, nhưng các cập nhật được cung cấp không nêu nguyên nhân gốc. Thêm nữa, hai sự cố cách nhau hơn ba tuần và khác phạm vi được mô tả. Vì vậy, không có đủ bằng chứng để nói chúng cùng nguyên nhân.\n\n**Nguồn** (thời điểm chụp status: **10/11/2026**, UTC):\n- DigitalOcean status: https://status.digitalocean.com  \n  Timeline sự cố: https://stspg.io/txrkbrvfl4bz\n- Vercel status: https://www.vercel-status.com  \n  Timeline sự cố: https://stspg.io/y6fmg7s9m5t2\n\nTimeline DigitalOcean có 1 cập nhật; Vercel có 3 cập nhật. Đã xem hết các cập nhật được công cụ trả về cho cả hai.",
+        "answer": "Cả hai sự cố hiện được ghi nhận là **đã xử lý (resolved)** trong các bản ghi đã xem. Chúng khác nhau về phạm vi ảnh hưởng; thông tin hiện có **không đủ căn cứ để kết luận chúng cùng nguyên nhân**.\n\n| Provider / sự cố | Trạng thái và phạm vi | Ứng dụng đang chạy | Build / deploy | Thời điểm |\n|---|---|---|---|---|\n| **DigitalOcean — App Platform Deployments** (`rl0fl1jtxw7l`) | Đã giải quyết; thành phần ghi là **Global**. | Theo thông báo, ứng dụng đã chạy trước sự cố **không bị ảnh hưởng**. | Từ **04:34 đến 12:15 UTC** (ngày chưa được xác nhận trong nội dung cập nhật), khách hàng có thể không deploy ứng dụng mới hoặc scale deployment hiện có. Nguyên nhân được nêu: cập nhật phần mềm khiến container không khởi động được trên các node hạ tầng mới; đội ngũ đã rollback cập nhật và khôi phục các node bị ảnh hưởng. | Tình trạng được bản ghi cập nhật lúc **2026-10-13 17:09:47 UTC**; dữ liệu được lấy lúc **2026-11-10 14:45:52 UTC**. Thời gian ảnh hưởng là khoảng giờ trong body, không tự gán ngày. |\n| **Vercel — Build delays and degraded Vercel Dashboard performance** (`w661l7k3kf4p`) | Đã giải quyết; thành phần **Dashboard** và **Builds**. | Có báo cáo **tải trang chậm** và thao tác thất bại trong Dashboard; thông báo không xác nhận riêng mức ảnh hưởng đến ứng dụng đang chạy. | Một số khách hàng gặp build chậm; cập nhật sau cho biết **Vercel CI cũng bị ảnh hưởng**. Khi giải quyết, backlog build đã được xóa. | Bắt đầu **2026-11-05 18:25 UTC**, thông báo giải quyết lúc **18:50 UTC**. Dữ liệu được lấy lúc **2026-11-10 14:45:50 UTC**. |\n\n**Có cùng nguyên nhân không?** Chưa có đủ căn cứ. DigitalOcean nêu nguyên nhân cụ thể là lỗi do cập nhật phần mềm trên node mới; Vercel nói đang điều tra và các cập nhật được xem không nêu nguyên nhân. Khác biệt về thời điểm và mô tả ảnh hưởng cũng không chứng minh hai sự cố độc lập hay có liên hệ nhân quả.\n\n**Nguồn:** [DigitalOcean incident](https://stspg.io/txrkbrvfl4bz) · [Vercel incident](https://stspg.io/y6fmg7s9m5t2)",
         "trace": [
           {
             "event": "model",
@@ -2641,149 +2903,6 @@
           {
             "event": "tool",
             "step": 1,
-            "name": "get_digitalocean_status",
-            "arguments": {},
-            "result": {
-              "provider": "digitalocean",
-              "captured_at": "2026-11-10T14:45:52.407939+00:00",
-              "overall": {
-                "indicator": "none",
-                "description": "All Systems Operational"
-              },
-              "components": [],
-              "incidents": [
-                {
-                  "id": "ckmpdk5z9xj9",
-                  "name": "Kubernetes Cluster Management Operations",
-                  "status": "resolved",
-                  "updated_at": "2026-10-28T01:55:12.437Z"
-                },
-                {
-                  "id": "rl0fl1jtxw7l",
-                  "name": "App Platform Deployments",
-                  "status": "resolved",
-                  "updated_at": "2026-10-13T17:09:48.123Z"
-                },
-                {
-                  "id": "qfg5hmfhxw5d",
-                  "name": "DNS Resolution for Managed Kubernetes",
-                  "status": "resolved",
-                  "updated_at": "2026-10-11T23:29:01.711Z"
-                },
-                {
-                  "id": "5fxykytg48dx",
-                  "name": "VPC Networking Availability",
-                  "status": "resolved",
-                  "updated_at": "2026-10-05T12:13:16.787Z"
-                },
-                {
-                  "id": "6z6dt3t1bhb9",
-                  "name": "A Network Disruption in BLR1 Region Impacted Multiple Products (Resolved)",
-                  "status": "resolved",
-                  "updated_at": "2026-10-03T14:51:13.637Z"
-                },
-                {
-                  "id": "grb2v0td1nq5",
-                  "name": "Support Portal Service Disruption",
-                  "status": "resolved",
-                  "updated_at": "2026-09-16T21:09:31.524Z"
-                },
-                {
-                  "id": "1t16vfgq3zpx",
-                  "name": "Power Degradation impacting GPU Performance in ATL1",
-                  "status": "resolved",
-                  "updated_at": "2026-09-09T12:25:52.160Z"
-                },
-                {
-                  "id": "4qwm6pzlx1z3",
-                  "name": "Cloud Control Panel and API",
-                  "status": "postmortem",
-                  "updated_at": "2026-09-15T19:11:53.801Z"
-                }
-              ],
-              "match_count": 50,
-              "returned": 8,
-              "note": "Chỉ tìm trong response incidents đã lấy; danh sách trả về tối đa 8 mục.",
-              "source": "https://status.digitalocean.com"
-            }
-          },
-          {
-            "event": "tool",
-            "step": 1,
-            "name": "get_vercel_status",
-            "arguments": {},
-            "result": {
-              "provider": "vercel",
-              "captured_at": "2026-11-10T14:45:50.457875+00:00",
-              "overall": {
-                "indicator": "none",
-                "description": "All Systems Operational"
-              },
-              "components": [],
-              "incidents": [
-                {
-                  "id": "w661l7k3kf4p",
-                  "name": "Build delays and degraded Vercel Dashboard performance",
-                  "status": "resolved",
-                  "updated_at": "2026-11-05T18:50:23.139Z"
-                },
-                {
-                  "id": "4lgcbsr7l8xn",
-                  "name": "Delays in Logs and Observability data",
-                  "status": "resolved",
-                  "updated_at": "2026-10-23T17:32:46.920Z"
-                },
-                {
-                  "id": "sps6n39gm4sg",
-                  "name": "Increased build and deployment failures",
-                  "status": "resolved",
-                  "updated_at": "2026-10-12T20:11:12.802Z"
-                },
-                {
-                  "id": "bpzq72pgngc7",
-                  "name": "Delays in Drains, Observability, and Workflow in Washington (iad1)",
-                  "status": "resolved",
-                  "updated_at": "2026-10-10T01:37:00.920Z"
-                },
-                {
-                  "id": "1dp8c0nfchtg",
-                  "name": "Vercel Auth login failures for pages with Deployment Protection enabled",
-                  "status": "resolved",
-                  "updated_at": "2026-10-06T16:26:49.403Z"
-                },
-                {
-                  "id": "xr8lx0kncx0g",
-                  "name": "Elevated Sandbox error rates in Paris (cdg1)",
-                  "status": "resolved",
-                  "updated_at": "2026-10-06T09:36:55.249Z"
-                },
-                {
-                  "id": "yy1sm6x5l83q",
-                  "name": "Build failures and 500 errors for functions using Edge runtime",
-                  "status": "resolved",
-                  "updated_at": "2026-09-28T14:11:29.973Z"
-                },
-                {
-                  "id": "5c1lswm68bkg",
-                  "name": "Deployment stuck in initializing state",
-                  "status": "resolved",
-                  "updated_at": "2026-09-18T22:31:22.780Z"
-                }
-              ],
-              "match_count": 50,
-              "returned": 8,
-              "note": "Chỉ tìm trong response incidents đã lấy; danh sách trả về tối đa 8 mục.",
-              "source": "https://www.vercel-status.com"
-            }
-          },
-          {
-            "event": "model",
-            "step": 2,
-            "finish": "tool_calls"
-          },
-          {
-            "event": "tool",
-            "step": 2,
             "name": "get_incident_details",
             "arguments": {
               "provider": "digitalocean",
@@ -2819,7 +2938,7 @@
           },
           {
             "event": "tool",
-            "step": 2,
+            "step": 1,
             "name": "get_incident_details",
             "arguments": {
               "provider": "vercel",
@@ -2868,33 +2987,17 @@
           },
           {
             "event": "model",
-            "step": 3,
+            "step": 2,
             "finish": "stop"
           }
         ],
         "usage": [
           {
-            "prompt_tokens": 862,
-            "completion_tokens": 48,
-            "total_tokens": 910,
-            "prompt_tokens_details": {
-              "cached_tokens": 0,
-              "cache_write_tokens": 0,
-              "audio_tokens": 0
-            },
-            "completion_tokens_details": {
-              "reasoning_tokens": 0,
-              "audio_tokens": 0,
-              "accepted_prediction_tokens": 0,
-              "rejected_prediction_tokens": 0
-            }
-          },
-          {
-            "prompt_tokens": 2003,
+            "prompt_tokens": 1178,
             "completion_tokens": 96,
-            "total_tokens": 2099,
+            "total_tokens": 1274,
             "prompt_tokens_details": {
-              "cached_tokens": 2000,
+              "cached_tokens": 1175,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -2906,12 +3009,12 @@
             }
           },
           {
-            "prompt_tokens": 2824,
-            "completion_tokens": 659,
-            "total_tokens": 3483,
+            "prompt_tokens": 1999,
+            "completion_tokens": 599,
+            "total_tokens": 2598,
             "prompt_tokens_details": {
-              "cached_tokens": 2000,
-              "cache_write_tokens": 821,
+              "cached_tokens": 1996,
+              "cache_write_tokens": 0,
               "audio_tokens": 0
             },
             "completion_tokens_details": {
@@ -2924,30 +3027,30 @@
         ]
       },
       "grade": {
-        "score": 86,
-        "raw_judge_score": 86,
+        "score": 100,
+        "raw_judge_score": 100,
         "dimensions": {
-          "factuality": 35,
-          "completeness": 22,
-          "evidence": 17,
-          "boundaries": 12
+          "factuality": 40,
+          "completeness": 25,
+          "evidence": 20,
+          "boundaries": 15
         },
         "status": "scored",
-        "reason": "Câu trả lời nêu đúng cả hai sự cố đã resolved, tác động chính, thời điểm và kết luận thận trọng rằng không đủ căn cứ nói cùng nguyên nhân; có dẫn URL timeline khớp trace. Tuy nhiên, thời điểm DigitalOcean được diễn đạt thành ngày 13/10/2026 dù nguồn chỉ nêu khoảng giờ UTC, không ghi ngày cho cửa sổ ảnh hưởng; phần Vercel nói build chậm, tải trang chậm và lỗi Dashboard là đúng, nhưng chưa làm rõ ứng dụng đang chạy không được mô tả là bị ảnh hưởng. Các chi tiết về status tổng thể và nguyên nhân DigitalOcean có nguồn hỗ trợ.",
-        "improvement": "Giữ thời điểm DigitalOcean đúng như nguồn (04:34–12:15 UTC, không tự gắn ngày nếu chưa xác nhận); nêu rõ Vercel ảnh hưởng build/CI và Dashboard, còn trạng thái ứng dụng đang chạy không được nguồn xác định.",
+        "reason": "Câu trả lời khớp với incident records: cả hai resolved; DigitalOcean ảnh hưởng deploy/scale nhưng không ảnh hưởng ứng dụng đã chạy, còn Vercel ghi nhận build chậm, Dashboard tải chậm/thao tác thất bại và CI bị ảnh hưởng. Thời điểm, thành phần và hai URL được nêu chính xác; không suy đoán nguyên nhân chung. Việc nói Vercel không xác nhận riêng ảnh hưởng đến ứng dụng đang chạy phù hợp với nguồn.",
+        "improvement": "Có thể ghi rõ thời điểm Vercel bắt đầu và được giải quyết theo UTC; các thông tin còn lại đã đáp ứng yêu cầu.",
         "mechanical": {
           "violations": [],
           "score_cap": 100,
-          "tool_calls": 4,
-          "tool_steps": 2
+          "tool_calls": 2,
+          "tool_steps": 1
         },
         "judge_usage": {
-          "prompt_tokens": 3269,
-          "completion_tokens": 225,
-          "total_tokens": 3494,
+          "prompt_tokens": 2000,
+          "completion_tokens": 163,
+          "total_tokens": 2163,
           "prompt_tokens_details": {
             "cached_tokens": 0,
-            "cache_write_tokens": 3266,
+            "cache_write_tokens": 1997,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
@@ -2971,7 +3074,7 @@
       "judge_model": "gpt-6-luna",
       "result": {
         "status": "completed",
-        "answer": "Mình **không thể xác nhận Linear hay Slack đang outage**: không có công cụ kiểm tra trạng thái của hai dịch vụ này trong phiên làm việc, nên cũng không thể tạo hoặc xác nhận **link incident chính xác** mà không đoán.\n\nCác nguồn chính thức để bạn kiểm tra trực tiếp:\n- Linear: https://status.linear.app/\n- Slack: https://status.slack.com/\n\nLưu ý: các truy vấn status có sẵn ở đây chỉ bao phủ GitHub, Cloudflare, Vercel, npm và DigitalOcean; chúng không cung cấp bằng chứng về Linear hoặc Slack.",
+        "answer": "Không thể xác nhận Linear hoặc Slack đang outage: công cụ khả dụng không có nguồn trạng thái cho hai dịch vụ, nên tôi cũng không thể tạo **link incident chính xác** mà chưa quan sát được từ nguồn. Không nên suy ra outage hay bịa URL.\n\nNguồn kiểm tra được cho các dịch vụ khác không xác minh tình trạng của Linear hoặc Slack.",
         "trace": [
           {
             "event": "model",
@@ -3048,8 +3151,13 @@
             }
           },
           {
+            "event": "model",
+            "step": 2,
+            "finish": "tool_calls"
+          },
+          {
             "event": "tool",
-            "step": 1,
+            "step": 2,
             "name": "get_cloudflare_status",
             "arguments": {},
             "result": {
@@ -3117,8 +3225,13 @@
             }
           },
           {
+            "event": "model",
+            "step": 3,
+            "finish": "tool_calls"
+          },
+          {
             "event": "tool",
-            "step": 1,
+            "step": 3,
             "name": "get_vercel_status",
             "arguments": {},
             "result": {
@@ -3186,8 +3299,13 @@
             }
           },
           {
+            "event": "model",
+            "step": 4,
+            "finish": "tool_calls"
+          },
+          {
             "event": "tool",
-            "step": 1,
+            "step": 4,
             "name": "get_npm_status",
             "arguments": {},
             "result": {
@@ -3255,8 +3373,13 @@
             }
           },
           {
+            "event": "model",
+            "step": 5,
+            "finish": "tool_calls"
+          },
+          {
             "event": "tool",
-            "step": 1,
+            "step": 5,
             "name": "get_digitalocean_status",
             "arguments": {},
             "result": {
@@ -3325,17 +3448,17 @@
           },
           {
             "event": "model",
-            "step": 2,
+            "step": 6,
             "finish": "stop"
           }
         ],
         "usage": [
           {
-            "prompt_tokens": 829,
-            "completion_tokens": 87,
-            "total_tokens": 916,
+            "prompt_tokens": 1145,
+            "completion_tokens": 15,
+            "total_tokens": 1160,
             "prompt_tokens_details": {
-              "cached_tokens": 0,
+              "cached_tokens": 1142,
               "cache_write_tokens": 0,
               "audio_tokens": 0
             },
@@ -3347,12 +3470,76 @@
             }
           },
           {
-            "prompt_tokens": 3565,
-            "completion_tokens": 127,
-            "total_tokens": 3692,
+            "prompt_tokens": 1689,
+            "completion_tokens": 15,
+            "total_tokens": 1704,
             "prompt_tokens_details": {
-              "cached_tokens": 3562,
-              "cache_write_tokens": 0,
+              "cached_tokens": 1142,
+              "cache_write_tokens": 544,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          {
+            "prompt_tokens": 2234,
+            "completion_tokens": 15,
+            "total_tokens": 2249,
+            "prompt_tokens_details": {
+              "cached_tokens": 1686,
+              "cache_write_tokens": 545,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          {
+            "prompt_tokens": 2810,
+            "completion_tokens": 15,
+            "total_tokens": 2825,
+            "prompt_tokens_details": {
+              "cached_tokens": 2231,
+              "cache_write_tokens": 576,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          {
+            "prompt_tokens": 3361,
+            "completion_tokens": 17,
+            "total_tokens": 3378,
+            "prompt_tokens_details": {
+              "cached_tokens": 2807,
+              "cache_write_tokens": 551,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          {
+            "prompt_tokens": 3923,
+            "completion_tokens": 77,
+            "total_tokens": 4000,
+            "prompt_tokens_details": {
+              "cached_tokens": 3358,
+              "cache_write_tokens": 562,
               "audio_tokens": 0
             },
             "completion_tokens_details": {
@@ -3374,21 +3561,21 @@
           "boundaries": 15
         },
         "status": "scored",
-        "reason": "Không khẳng định outage hay bịa link incident; nêu rõ không có công cụ kiểm tra Linear/Slack và không thể xác nhận URL incident. Các trang trạng thái được đưa ra như nguồn để người dùng tự kiểm tra; ghi chú về những provider có trong truy vấn phù hợp với trace.",
-        "improvement": "Có thể nói rõ các trang status là liên kết kiểm tra chung, không phải liên kết incident cụ thể.",
+        "reason": "Đáp án không khẳng định Linear hoặc Slack đang outage, cũng không bịa URL; nêu rõ thiếu nguồn trạng thái và không suy diễn từ các provider khác. Điều này khớp expected và trace.",
+        "improvement": "Có thể nói rõ các công cụ đã kiểm tra chỉ cung cấp trạng thái cho provider khác, không phải Linear hoặc Slack.",
         "mechanical": {
           "violations": [],
           "score_cap": 100,
           "tool_calls": 5,
-          "tool_steps": 1
+          "tool_steps": 5
         },
         "judge_usage": {
-          "prompt_tokens": 3501,
-          "completion_tokens": 115,
-          "total_tokens": 3616,
+          "prompt_tokens": 3531,
+          "completion_tokens": 101,
+          "total_tokens": 3632,
           "prompt_tokens_details": {
             "cached_tokens": 0,
-            "cache_write_tokens": 3498,
+            "cache_write_tokens": 3528,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
@@ -3412,7 +3599,7 @@
       "judge_model": "gpt-6-luna",
       "result": {
         "status": "completed",
-        "answer": "## Tổng hợp status\n\nStatus tool ghi nhận các snapshot từ **9–10/11/2026 UTC**. Đây là trạng thái tại thời điểm snapshot, không đảm bảo trạng thái ngay lúc bạn đọc.\n\n| Nhà cung cấp | Hiện trạng theo snapshot | Ghi chú về incident và giới hạn dữ liệu |\n|---|---|---|\n| **GitHub Actions** | **Operational**; trạng thái tổng thể GitHub là “All Systems Operational”. Snapshot: **2026-11-09 03:50 UTC**. | Có nhiều incident đã resolved trong danh sách trả về, gồm incident mang tên “Incident with Actions”, cập nhật lần cuối **5/11 17:42 UTC** và **7/11 01:10 UTC**, cùng incident “Actions and Pages” cập nhật **7/11 01:04 UTC**. Tool báo **23 incident khớp, chỉ trả 8**; không xem toàn bộ lịch sử. Nguồn: [GitHub Status](https://www.githubstatus.com). |\n| **npm publishing** | Tổng thể **“All Systems Operational”**. Snapshot: **2026-11-10 14:45 UTC**. Tool không trả danh sách component riêng, nên không có xác nhận component-level cụ thể cho publishing. | Incident “Minor issues impacting package publish” đã **resolved**, cập nhật **7/11 15:05 UTC**. Có **50 incident khớp, chỉ trả 8**; lịch sử ngoài 8 mục chưa xem. Nguồn: [npm Status](https://status.npmjs.org). |\n| **Vercel Builds** | **Chưa xác minh được** trạng thái component Builds. | Lần gọi có bộ lọc Builds bị rate limit HTTP 429 (`Retry-After: 0`, `retriable: true`). Lần gọi status không lọc sau đó thành công, nhưng không trả component riêng; do đó chỉ xác nhận tổng thể Vercel là **“All Systems Operational”** tại **2026-11-10 14:45 UTC**, không thể suy ra riêng Builds đang hoạt động. Một incident lịch sử có tên “Build delays and degraded Vercel Dashboard performance” đã resolved, cập nhật **5/11 18:50 UTC**. Danh sách chỉ trả 8/50 incident khớp. Nguồn: [Vercel Status](https://www.vercel-status.com). |\n| **Cloudflare** | Snapshot **2026-11-09 03:50 UTC** báo tổng thể **“Partial System Outage”** (`major`). Không có component cụ thể được trả về, nên chưa xác định được phạm vi ảnh hưởng hiện tại từ kết quả này. | Danh sách có incident **đang mở**: “Spectrum Availability Issue in Phoenix” ở trạng thái **monitoring**, cập nhật **7/11 02:51 UTC**; “Fedramp Customers have Delayed Purges” ở trạng thái **identified**, cập nhật **6/11 17:59 UTC**. Đây là trạng thái incident tại lần cập nhật được nêu, không đủ để xác nhận phạm vi hay ảnh hưởng hiện tại. Có **50 incident khớp, chỉ trả 8**. Nguồn: [Cloudflare Status](https://www.cloudflarestatus.com). |\n| **DigitalOcean** | Tổng thể **“All Systems Operational”**. Snapshot: **2026-11-10 14:45 UTC**. Tool không trả component riêng. | Các incident trong 8 mục được trả về đều là resolved hoặc postmortem; ví dụ “App Platform Deployments” resolved, cập nhật **13/10 17:09 UTC**. Có **50 incident khớp, chỉ trả 8**; không xem toàn bộ lịch sử. Nguồn: [DigitalOcean Status](https://status.digitalocean.com). |\n\n**Kết luận:** Các snapshot cho thấy GitHub Actions, npm ở mức tổng thể và DigitalOcean không báo outage; Vercel tổng thể cũng báo hoạt động bình thường nhưng riêng Builds chưa xác minh được do rate limit ở truy vấn có lọc. Cloudflare báo partial outage trong snapshot của mình và có incident ở trạng thái monitoring/identified trong danh sách. Các snapshot khác nhau về thời điểm, và dữ liệu không cung cấp căn cứ để kết luận các vấn đề có chung nguyên nhân.",
+        "answer": "## Tóm tắt trạng thái\n\n| Nhà cung cấp | Trạng thái trong dữ liệu đã lấy | Phạm vi CI và giới hạn | `captured_at` |\n|---|---|---|---|\n| **GitHub Actions** | **Operational**; trạng thái tổng thể “All Systems Operational”. | Có bản ghi lịch sử về incident Actions, đều được trả về là **resolved**. Danh sách incident giới hạn ở 8 mục trong kết quả; không xác minh toàn bộ lịch sử. | `2026-11-09T03:50:47.065020+00:00` |\n| **npm publishing** | **Package publishing operational**; tổng thể “All Systems Operational”. | Một incident publish gần đây trong danh sách, “Minor issues impacting package publish”, được ghi là **resolved**. Tối đa 8 incident được trả về; không xem trang incident chi tiết. | `2026-11-10T14:45:51.077785+00:00` |\n| **Vercel Builds** | **Builds operational**; tổng thể “All Systems Operational”. | Các incident build/deploy trong phần kết quả đều **resolved**. Danh sách tối đa 8; không xác minh nội dung hoặc thời gian ảnh hưởng chi tiết của từng incident. | `2026-11-10T14:45:50.457875+00:00` |\n| **Cloudflare** | Trạng thái tổng thể **“Partial System Outage”**; thành phần **Cloudflare Sites and Services: degraded performance**. **Workers Builds** được báo **operational**. | Có các incident lịch sử về Wrangler/Pages/Workers Builds được ghi **resolved**. Không có đủ dữ liệu để xác định các sự cố còn được theo dõi thuộc phạm vi CI trường hay ảnh hưởng cụ thể của chúng. | `2026-11-09T03:50:47.638054+00:00` |\n| **DigitalOcean** | Tổng thể “All Systems Operational”. | Kết quả không liệt kê thành phần cụ thể cho CI/deploy; có incident lịch sử “App Platform Deployments” được ghi **resolved**. Vì vậy chưa xác minh riêng trạng thái deploy hiện tại từ dữ liệu thành phần. | `2026-11-10T14:45:52.407939+00:00` |\n\n**Vercel:** lần gọi đầu trả lỗi `429`, `retry_after_seconds: 0`, `retriable: true`; đã retry cùng tool và tham số, và lần gọi sau thành công.  \n**Cloudflare:** đã lấy được thông tin thành phần Workers Builds và trạng thái chung; trạng thái tổng thể vẫn là outage một phần, không nên hiểu là Workers Builds đang lỗi.  \n**Ảnh hưởng ứng dụng đang chạy:** các kết quả này không nêu rõ tình trạng ứng dụng đã deploy/đang chạy; chưa xác minh được. Không có cơ sở kết luận các sự cố giữa các nhà cung cấp có cùng nguyên nhân.\n\n**Nguồn status** (URL được trả về trong kết quả):\n- GitHub: https://www.githubstatus.com\n- npm: https://status.npmjs.org\n- Vercel: https://www.vercel-status.com\n- Cloudflare: https://www.cloudflarestatus.com\n- DigitalOcean: https://status.digitalocean.com",
         "trace": [
           {
             "event": "model",
@@ -3499,7 +3686,9 @@
             "event": "tool",
             "step": 1,
             "name": "get_npm_status",
-            "arguments": {},
+            "arguments": {
+              "component": "publishing"
+            },
             "result": {
               "provider": "npm",
               "captured_at": "2026-11-10T14:45:51.077785+00:00",
@@ -3507,19 +3696,18 @@
                 "indicator": "none",
                 "description": "All Systems Operational"
               },
-              "components": [],
+              "components": [
+                {
+                  "name": "Package publishing",
+                  "status": "operational"
+                }
+              ],
               "incidents": [
                 {
                   "id": "cc0t2r4403sy",
                   "name": "Minor issues impacting package publish",
                   "status": "resolved",
                   "updated_at": "2026-11-07T15:05:05.127Z"
-                },
-                {
-                  "id": "hf0q2nhdk5cp",
-                  "name": "View package and auth outage on npmjs.com",
-                  "status": "resolved",
-                  "updated_at": "2026-10-26T06:30:19.136Z"
                 },
                 {
                   "id": "56x3sh4qhr9s",
@@ -3532,12 +3720,6 @@
                   "name": "Degraded Package Install and Publishing",
                   "status": "resolved",
                   "updated_at": "2026-10-22T04:24:18.534Z"
-                },
-                {
-                  "id": "nwrj52br2kjv",
-                  "name": "Issues with login and viewing packages",
-                  "status": "resolved",
-                  "updated_at": "2026-10-14T11:44:23.122Z"
                 },
                 {
                   "id": "zff9xpz80gwf",
@@ -3556,9 +3738,21 @@
                   "name": "Publishing Packages Degraded Performance",
                   "status": "resolved",
                   "updated_at": "2026-09-15T16:35:22.661Z"
+                },
+                {
+                  "id": "b6958bgj1sm3",
+                  "name": "Intermittent Failures Impacting npm Publish",
+                  "status": "resolved",
+                  "updated_at": "2026-09-03T23:21:05.013Z"
+                },
+                {
+                  "id": "r3v0vxwksk7s",
+                  "name": "intermittent Publish Failures",
+                  "status": "resolved",
+                  "updated_at": "2026-07-30T16:30:37.646Z"
                 }
               ],
-              "match_count": 50,
+              "match_count": 24,
               "returned": 8,
               "note": "Chỉ tìm trong response incidents đã lấy; danh sách trả về tối đa 8 mục.",
               "source": "https://status.npmjs.org"
@@ -3577,7 +3771,11 @@
               "http_status": 429,
               "retry_after_seconds": 0,
               "retriable": true,
-              "message": "429 giả lập; retry có giới hạn."
+              "message": "429 giả lập; retry có giới hạn.",
+              "retry_arguments": {
+                "component": "Builds"
+              },
+              "rate_limit_failures": 1
             }
           },
           {
@@ -3727,7 +3925,9 @@
             "event": "tool",
             "step": 2,
             "name": "get_vercel_status",
-            "arguments": {},
+            "arguments": {
+              "component": "Builds"
+            },
             "result": {
               "provider": "vercel",
               "captured_at": "2026-11-10T14:45:50.457875+00:00",
@@ -3735,7 +3935,16 @@
                 "indicator": "none",
                 "description": "All Systems Operational"
               },
-              "components": [],
+              "components": [
+                {
+                  "name": "Builds",
+                  "status": "operational"
+                },
+                {
+                  "name": "Builds",
+                  "status": "operational"
+                }
+              ],
               "incidents": [
                 {
                   "id": "w661l7k3kf4p",
@@ -3744,34 +3953,10 @@
                   "updated_at": "2026-11-05T18:50:23.139Z"
                 },
                 {
-                  "id": "4lgcbsr7l8xn",
-                  "name": "Delays in Logs and Observability data",
-                  "status": "resolved",
-                  "updated_at": "2026-10-23T17:32:46.920Z"
-                },
-                {
                   "id": "sps6n39gm4sg",
                   "name": "Increased build and deployment failures",
                   "status": "resolved",
                   "updated_at": "2026-10-12T20:11:12.802Z"
-                },
-                {
-                  "id": "bpzq72pgngc7",
-                  "name": "Delays in Drains, Observability, and Workflow in Washington (iad1)",
-                  "status": "resolved",
-                  "updated_at": "2026-10-10T01:37:00.920Z"
-                },
-                {
-                  "id": "1dp8c0nfchtg",
-                  "name": "Vercel Auth login failures for pages with Deployment Protection enabled",
-                  "status": "resolved",
-                  "updated_at": "2026-10-06T16:26:49.403Z"
-                },
-                {
-                  "id": "xr8lx0kncx0g",
-                  "name": "Elevated Sandbox error rates in Paris (cdg1)",
-                  "status": "resolved",
-                  "updated_at": "2026-10-06T09:36:55.249Z"
                 },
                 {
                   "id": "yy1sm6x5l83q",
@@ -3784,9 +3969,33 @@
                   "name": "Deployment stuck in initializing state",
                   "status": "resolved",
                   "updated_at": "2026-09-18T22:31:22.780Z"
+                },
+                {
+                  "id": "bwkmw4hmrgmk",
+                  "name": "Elevated Errors Triggering Deployments",
+                  "status": "resolved",
+                  "updated_at": "2026-09-18T21:32:12.937Z"
+                },
+                {
+                  "id": "1z2qkcjgfx3y",
+                  "name": "Increased deployment failures",
+                  "status": "resolved",
+                  "updated_at": "2026-09-01T20:58:43.905Z"
+                },
+                {
+                  "id": "s6hljjh3n822",
+                  "name": "Elevated build initialization times",
+                  "status": "resolved",
+                  "updated_at": "2026-08-25T20:05:18.324Z"
+                },
+                {
+                  "id": "ysczd6rxyl7z",
+                  "name": "Dynamic API routes returned 404 errors for some deployments",
+                  "status": "resolved",
+                  "updated_at": "2026-08-14T13:08:12.898Z"
                 }
               ],
-              "match_count": 50,
+              "match_count": 16,
               "returned": 8,
               "note": "Chỉ tìm trong response incidents đã lấy; danh sách trả về tối đa 8 mục.",
               "source": "https://www.vercel-status.com"
@@ -3798,142 +4007,353 @@
             "finish": "tool_calls"
           },
           {
-            "event": "validation_no_progress",
-            "step": 3,
-            "name": "get_npm_status",
-            "arguments": {}
-          },
-          {
             "event": "tool",
             "step": 3,
-            "name": "get_npm_status",
-            "arguments": {},
+            "name": "get_cloudflare_status",
+            "arguments": {
+              "component": "Workers Builds"
+            },
             "result": {
-              "provider": "npm",
-              "captured_at": "2026-11-10T14:45:51.077785+00:00",
+              "provider": "cloudflare",
+              "captured_at": "2026-11-09T03:50:47.638054+00:00",
               "overall": {
-                "indicator": "none",
-                "description": "All Systems Operational"
+                "indicator": "major",
+                "description": "Partial System Outage"
               },
-              "components": [],
-              "incidents": [
+              "components": [
                 {
-                  "id": "cc0t2r4403sy",
-                  "name": "Minor issues impacting package publish",
-                  "status": "resolved",
-                  "updated_at": "2026-11-07T15:05:05.127Z"
-                },
-                {
-                  "id": "hf0q2nhdk5cp",
-                  "name": "View package and auth outage on npmjs.com",
-                  "status": "resolved",
-                  "updated_at": "2026-10-26T06:30:19.136Z"
-                },
-                {
-                  "id": "56x3sh4qhr9s",
-                  "name": "Degraded Publish, Install, and View Package",
-                  "status": "resolved",
-                  "updated_at": "2026-10-22T11:59:57.769Z"
-                },
-                {
-                  "id": "xfp75s9j3bp8",
-                  "name": "Degraded Package Install and Publishing",
-                  "status": "resolved",
-                  "updated_at": "2026-10-22T04:24:18.534Z"
-                },
-                {
-                  "id": "nwrj52br2kjv",
-                  "name": "Issues with login and viewing packages",
-                  "status": "resolved",
-                  "updated_at": "2026-10-14T11:44:23.122Z"
-                },
-                {
-                  "id": "zff9xpz80gwf",
-                  "name": "Issues with npm package publish and private install",
-                  "status": "resolved",
-                  "updated_at": "2026-09-27T06:47:55.042Z"
-                },
-                {
-                  "id": "y5yr5z8grj7q",
-                  "name": "Package Publish Degradation",
-                  "status": "resolved",
-                  "updated_at": "2026-09-15T18:19:35.940Z"
-                },
-                {
-                  "id": "s219g6z13p2n",
-                  "name": "Publishing Packages Degraded Performance",
-                  "status": "resolved",
-                  "updated_at": "2026-09-15T16:35:22.661Z"
+                  "name": "Workers Builds",
+                  "status": "operational"
                 }
               ],
-              "match_count": 50,
-              "returned": 8,
+              "incidents": [
+                {
+                  "id": "wtsd415cavkc",
+                  "name": "Wrangler Deployments, Pages, and Workers Builds failures",
+                  "status": "resolved",
+                  "updated_at": "2026-11-06T10:08:30.899Z"
+                },
+                {
+                  "id": "yaa0witbl2me",
+                  "name": "Workers Builds Issues",
+                  "status": "resolved",
+                  "updated_at": "2026-11-05T20:20:10.166Z"
+                },
+                {
+                  "id": "nbyxn84kvb6o",
+                  "name": "Cloudflare Workers and Pages build errors ",
+                  "status": "resolved",
+                  "updated_at": "2026-11-03T19:38:09.321Z"
+                },
+                {
+                  "id": "2eno8w1fk27j",
+                  "name": "We are seeing some customers having issues with Workers Builds",
+                  "status": "resolved",
+                  "updated_at": "2026-10-27T12:55:24.566Z"
+                },
+                {
+                  "id": "j3llzsq3m17a",
+                  "name": "Some customers may notice their Pages and/or Workers builds are intermittently failing.",
+                  "status": "resolved",
+                  "updated_at": "2026-10-28T00:37:48.949Z"
+                },
+                {
+                  "id": "dv2vbq9kbgxn",
+                  "name": "Cloudflare Workers build delays",
+                  "status": "resolved",
+                  "updated_at": "2026-10-26T16:03:32.129Z"
+                }
+              ],
+              "match_count": 6,
+              "returned": 6,
               "note": "Chỉ tìm trong response incidents đã lấy; danh sách trả về tối đa 8 mục.",
-              "source": "https://status.npmjs.org"
+              "source": "https://www.cloudflarestatus.com"
             }
           },
           {
             "event": "model",
             "step": 4,
+            "finish": "tool_calls"
+          },
+          {
+            "event": "tool",
+            "step": 4,
+            "name": "get_cloudflare_status",
+            "arguments": {
+              "component": "Cloudflare"
+            },
+            "result": {
+              "provider": "cloudflare",
+              "captured_at": "2026-11-09T03:50:47.638054+00:00",
+              "overall": {
+                "indicator": "major",
+                "description": "Partial System Outage"
+              },
+              "components": [
+                {
+                  "name": "Cloudflare Sites and Services",
+                  "status": "degraded_performance"
+                },
+                {
+                  "name": "Cloudflare Network Firewall",
+                  "status": "operational"
+                },
+                {
+                  "name": "Cloudflare WAN",
+                  "status": "operational"
+                },
+                {
+                  "name": "Cloudflare One Client",
+                  "status": "operational"
+                },
+                {
+                  "name": "Cloudflare One Appliance",
+                  "status": "operational"
+                }
+              ],
+              "incidents": [
+                {
+                  "id": "x9orajjmvvwa",
+                  "name": "Network Performance Issues in Chicago",
+                  "status": "resolved",
+                  "updated_at": "2026-11-07T05:35:16.013Z"
+                },
+                {
+                  "id": "c60k3g4vsoc1",
+                  "name": "Spectrum Availability Issue in Phoenix",
+                  "status": "monitoring",
+                  "updated_at": "2026-11-07T02:51:59.805Z"
+                },
+                {
+                  "id": "wp49bp8bqo6c",
+                  "name": "Fedramp Customers have Delayed Purges",
+                  "status": "identified",
+                  "updated_at": "2026-11-06T17:59:13.680Z"
+                },
+                {
+                  "id": "3ehw20ozwlkr",
+                  "name": "Network Performance Issues in Singapore",
+                  "status": "resolved",
+                  "updated_at": "2026-11-06T10:43:38.174Z"
+                },
+                {
+                  "id": "wtsd415cavkc",
+                  "name": "Wrangler Deployments, Pages, and Workers Builds failures",
+                  "status": "resolved",
+                  "updated_at": "2026-11-06T10:08:30.899Z"
+                },
+                {
+                  "id": "oy8gxjb38yse",
+                  "name": "Increased Errors for Durable Objects in Western Europe",
+                  "status": "resolved",
+                  "updated_at": "2026-11-06T09:05:19.945Z"
+                },
+                {
+                  "id": "yaa0witbl2me",
+                  "name": "Workers Builds Issues",
+                  "status": "resolved",
+                  "updated_at": "2026-11-05T20:20:10.166Z"
+                },
+                {
+                  "id": "1i6fnludjh1m",
+                  "name": "Network disruption across multiple colocations in India",
+                  "status": "resolved",
+                  "updated_at": "2026-11-05T16:16:48.247Z"
+                }
+              ],
+              "match_count": 42,
+              "returned": 8,
+              "note": "Chỉ tìm trong response incidents đã lấy; danh sách trả về tối đa 8 mục.",
+              "source": "https://www.cloudflarestatus.com"
+            }
+          },
+          {
+            "event": "model",
+            "step": 5,
+            "finish": "tool_calls"
+          },
+          {
+            "event": "validation_no_progress",
+            "step": 5,
+            "name": "get_vercel_status",
+            "arguments": {
+              "component": "Builds"
+            }
+          },
+          {
+            "event": "tool",
+            "step": 5,
+            "name": "get_vercel_status",
+            "arguments": {
+              "component": "Builds"
+            },
+            "result": {
+              "provider": "vercel",
+              "captured_at": "2026-11-10T14:45:50.457875+00:00",
+              "overall": {
+                "indicator": "none",
+                "description": "All Systems Operational"
+              },
+              "components": [
+                {
+                  "name": "Builds",
+                  "status": "operational"
+                },
+                {
+                  "name": "Builds",
+                  "status": "operational"
+                }
+              ],
+              "incidents": [
+                {
+                  "id": "w661l7k3kf4p",
+                  "name": "Build delays and degraded Vercel Dashboard performance",
+                  "status": "resolved",
+                  "updated_at": "2026-11-05T18:50:23.139Z"
+                },
+                {
+                  "id": "sps6n39gm4sg",
+                  "name": "Increased build and deployment failures",
+                  "status": "resolved",
+                  "updated_at": "2026-10-12T20:11:12.802Z"
+                },
+                {
+                  "id": "yy1sm6x5l83q",
+                  "name": "Build failures and 500 errors for functions using Edge runtime",
+                  "status": "resolved",
+                  "updated_at": "2026-09-28T14:11:29.973Z"
+                },
+                {
+                  "id": "5c1lswm68bkg",
+                  "name": "Deployment stuck in initializing state",
+                  "status": "resolved",
+                  "updated_at": "2026-09-18T22:31:22.780Z"
+                },
+                {
+                  "id": "bwkmw4hmrgmk",
+                  "name": "Elevated Errors Triggering Deployments",
+                  "status": "resolved",
+                  "updated_at": "2026-09-18T21:32:12.937Z"
+                },
+                {
+                  "id": "1z2qkcjgfx3y",
+                  "name": "Increased deployment failures",
+                  "status": "resolved",
+                  "updated_at": "2026-09-01T20:58:43.905Z"
+                },
+                {
+                  "id": "s6hljjh3n822",
+                  "name": "Elevated build initialization times",
+                  "status": "resolved",
+                  "updated_at": "2026-08-25T20:05:18.324Z"
+                },
+                {
+                  "id": "ysczd6rxyl7z",
+                  "name": "Dynamic API routes returned 404 errors for some deployments",
+                  "status": "resolved",
+                  "updated_at": "2026-08-14T13:08:12.898Z"
+                }
+              ],
+              "match_count": 16,
+              "returned": 8,
+              "note": "Chỉ tìm trong response incidents đã lấy; danh sách trả về tối đa 8 mục.",
+              "source": "https://www.vercel-status.com"
+            }
+          },
+          {
+            "event": "model",
+            "step": 6,
             "finish": "stop"
           }
         ],
         "usage": [
           {
-            "prompt_tokens": 859,
-            "completion_tokens": 94,
-            "total_tokens": 953,
+            "prompt_tokens": 1175,
+            "completion_tokens": 98,
+            "total_tokens": 1273,
+            "prompt_tokens_details": {
+              "cached_tokens": 1172,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          {
+            "prompt_tokens": 3481,
+            "completion_tokens": 20,
+            "total_tokens": 3501,
+            "prompt_tokens_details": {
+              "cached_tokens": 3478,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          {
+            "prompt_tokens": 4068,
+            "completion_tokens": 20,
+            "total_tokens": 4088,
+            "prompt_tokens_details": {
+              "cached_tokens": 4065,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          {
+            "prompt_tokens": 4540,
+            "completion_tokens": 20,
+            "total_tokens": 4560,
+            "prompt_tokens_details": {
+              "cached_tokens": 4065,
+              "cache_write_tokens": 472,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          {
+            "prompt_tokens": 5172,
+            "completion_tokens": 20,
+            "total_tokens": 5192,
+            "prompt_tokens_details": {
+              "cached_tokens": 4537,
+              "cache_write_tokens": 632,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          {
+            "prompt_tokens": 5173,
+            "completion_tokens": 704,
+            "total_tokens": 5877,
             "prompt_tokens_details": {
               "cached_tokens": 0,
-              "cache_write_tokens": 0,
-              "audio_tokens": 0
-            },
-            "completion_tokens_details": {
-              "reasoning_tokens": 0,
-              "audio_tokens": 0,
-              "accepted_prediction_tokens": 0,
-              "rejected_prediction_tokens": 0
-            }
-          },
-          {
-            "prompt_tokens": 3126,
-            "completion_tokens": 15,
-            "total_tokens": 3141,
-            "prompt_tokens_details": {
-              "cached_tokens": 3123,
-              "cache_write_tokens": 0,
-              "audio_tokens": 0
-            },
-            "completion_tokens_details": {
-              "reasoning_tokens": 0,
-              "audio_tokens": 0,
-              "accepted_prediction_tokens": 0,
-              "rejected_prediction_tokens": 0
-            }
-          },
-          {
-            "prompt_tokens": 3702,
-            "completion_tokens": 15,
-            "total_tokens": 3717,
-            "prompt_tokens_details": {
-              "cached_tokens": 3699,
-              "cache_write_tokens": 0,
-              "audio_tokens": 0
-            },
-            "completion_tokens_details": {
-              "reasoning_tokens": 0,
-              "audio_tokens": 0,
-              "accepted_prediction_tokens": 0,
-              "rejected_prediction_tokens": 0
-            }
-          },
-          {
-            "prompt_tokens": 3889,
-            "completion_tokens": 918,
-            "total_tokens": 4807,
-            "prompt_tokens_details": {
-              "cached_tokens": 0,
-              "cache_write_tokens": 3832,
+              "cache_write_tokens": 5116,
               "audio_tokens": 0
             },
             "completion_tokens_details": {
@@ -3946,30 +4366,30 @@
         ]
       },
       "grade": {
-        "score": 98,
-        "raw_judge_score": 98,
+        "score": 96,
+        "raw_judge_score": 96,
         "dimensions": {
-          "factuality": 40,
+          "factuality": 38,
           "completeness": 24,
           "evidence": 19,
           "boundaries": 15
         },
         "status": "scored",
-        "reason": "Tổng hợp đúng trạng thái và timestamp của cả năm dịch vụ theo trace; phân biệt rõ trạng thái tổng thể với component chưa xác minh, nêu giới hạn incident trả về và không suy luận nguyên nhân chung. Vercel bị 429 ở truy vấn Builds rồi retry thành công một lần bằng truy vấn tổng thể, trong giới hạn. Nguồn và thời điểm snapshot được nêu; sai khác không đáng kể là làm tròn timestamp đến phút.",
-        "improvement": "Nêu chính xác timestamp đầy đủ theo UTC và làm rõ Vercel chỉ retry một lần sau lỗi 429.",
+        "reason": "Tổng hợp đúng trạng thái của cả năm nhà cung cấp, ghi timestamp snapshot và nguồn status; phản ánh Vercel bị 429 rồi retry thành công, Cloudflare tổng thể outage một phần nhưng Workers Builds operational, và DigitalOcean thiếu trạng thái thành phần deploy. Không suy luận sự cố có chung nguyên nhân. Một điểm nhỏ: câu “có incident publish gần đây” không nêu ngày, nhưng incident được nguồn ghi là resolved.",
+        "improvement": "Có thể nêu ngày cập nhật incident npm (2026-11-07) và làm rõ timestamp là thời điểm snapshot, không phải thời điểm incident.",
         "mechanical": {
           "violations": [],
           "score_cap": 100,
-          "tool_calls": 7,
-          "tool_steps": 3
+          "tool_calls": 9,
+          "tool_steps": 5
         },
         "judge_usage": {
-          "prompt_tokens": 5105,
-          "completion_tokens": 150,
-          "total_tokens": 5255,
+          "prompt_tokens": 6211,
+          "completion_tokens": 155,
+          "total_tokens": 6366,
           "prompt_tokens_details": {
             "cached_tokens": 0,
-            "cache_write_tokens": 5102,
+            "cache_write_tokens": 6208,
             "audio_tokens": 0
           },
           "completion_tokens_details": {
